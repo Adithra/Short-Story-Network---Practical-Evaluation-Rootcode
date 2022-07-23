@@ -111,7 +111,7 @@
             this.Controls.Add(this.postText);
             this.Name = "uiNewPost";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "uiNewPost";
+            this.Text = "Post Details";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

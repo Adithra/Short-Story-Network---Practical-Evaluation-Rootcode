@@ -79,7 +79,7 @@
             this.Controls.Add(this.userList);
             this.Name = "uiPosts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "uiPosts";
+            this.Text = "Post List";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
             this.ResumeLayout(false);
