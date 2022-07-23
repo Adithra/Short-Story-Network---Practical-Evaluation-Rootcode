@@ -68,7 +68,7 @@
             this.bann,
             this.unBan});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 114);
             // 
             // followWriter
             // 
@@ -189,6 +189,7 @@
             this.Name = "uiWriters";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User List";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.uiWriters_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

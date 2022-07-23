@@ -251,5 +251,11 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             Set_User_States(AdminAction.Ban, false);
         }
+
+        private void uiWriters_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit()
+
+        }
     }
 }
