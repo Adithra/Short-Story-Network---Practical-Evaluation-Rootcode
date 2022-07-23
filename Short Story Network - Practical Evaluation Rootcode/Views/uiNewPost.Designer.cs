@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.postText = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Confirm = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // postText
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(800, 450);
-            this.textBox1.TabIndex = 0;
+            this.postText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.postText.Location = new System.Drawing.Point(0, 0);
+            this.postText.Multiline = true;
+            this.postText.Name = "postText";
+            this.postText.Size = new System.Drawing.Size(800, 450);
+            this.postText.TabIndex = 0;
             // 
             // panel1
             // 
@@ -72,7 +72,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.postText);
             this.Name = "uiNewPost";
             this.Text = "uiNewPost";
             this.panel1.ResumeLayout(false);
@@ -83,7 +83,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox postText;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Confirm;
     }

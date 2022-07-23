@@ -46,6 +46,10 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                     ctx.Posts.Add(postObj);
                     ctx.SaveChanges();
                 }
+
+                var author = context.Authors.First(a => a.AuthorId == 1);
+
+
                 return new ClientResponse { Message = "", State = true };
             }
             catch (Exception ex)
