@@ -52,7 +52,7 @@
             this.newPost.FlatAppearance.BorderSize = 0;
             this.newPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newPost.ForeColor = System.Drawing.Color.White;
-            this.newPost.Location = new System.Drawing.Point(657, 13);
+            this.newPost.Location = new System.Drawing.Point(662, 13);
             this.newPost.Name = "newPost";
             this.newPost.Size = new System.Drawing.Size(131, 23);
             this.newPost.TabIndex = 2;
