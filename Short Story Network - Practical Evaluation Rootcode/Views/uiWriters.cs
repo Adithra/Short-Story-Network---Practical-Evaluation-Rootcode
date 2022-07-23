@@ -33,7 +33,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             if (showAllUsers.Text == "Show Follower only")
             {
-                Fill_Data("F");
+                Fill_Data("F", _loggedUserDetailsObj.userID);
                 showAllUsers.Text = "Show all users";
             }
             else
@@ -42,11 +42,11 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 Fill_Data("U");
             }
         }
-        private ClientResponse Fill_Data(string uRole)
+        private ClientResponse Fill_Data(string uRole, int userID = 0)
         {
             try
             {
-                var writerList = (List<UserInfo>)clsWritersObj.Get_Writer_List(uRole).ResultObject;
+                var writerList = (List<UserInfo>)clsWritersObj.Get_Writer_List(uRole,userID ).ResultObject;
                 userList.DataSource = writerList;
                 this.userList.Columns["Id"].Visible = false;
                 this.userList.Columns["UserId"].Visible = false;
