@@ -99,20 +99,22 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         private void uiPosts_Load(object sender, EventArgs e)
         {
-            Fill_Data(0);
+            Fill_Data(_loggedUserDetailsObj.userID);
         }
 
         private void userList_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             try
-            { 
-                uiNewPost uiNewPostObj = new(_loggedUserDetailsObj, true);
+            {
+                var userID = (int)this.userList.Rows[e.RowIndex].Cells["UserId"].Value;
+                uiNewPost uiNewPostObj = new(_loggedUserDetailsObj, _overrideAccess, userID);
                 var postID = (int)this.userList.Rows[e.RowIndex].Cells["PostId"].Value;
                 uiNewPostObj.Load_Post(postID);
+                uiNewPostObj.postID = postID;
                 uiNewPostObj.ShowDialog();
                 if (!_overrideAccess)
                 {
-                    Fill_Data(postID);
+                    Fill_Data(_loggedUserDetailsObj.userID);
                 }
             }
             catch (Exception)
