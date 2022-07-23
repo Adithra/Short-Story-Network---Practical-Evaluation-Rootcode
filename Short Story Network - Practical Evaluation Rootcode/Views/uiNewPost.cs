@@ -33,9 +33,11 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         private void Confirm_Click(object sender, EventArgs e)
         {
-            Post postObj = new();
-            postObj.Post1 = postText.Text;
-            postObj.UserId = _loggedUserDetailsObj.userID;
+            Post postObj = new()
+            {
+                Post1 = postText.Text,
+                UserId = _loggedUserDetailsObj.userID
+            };
             if (postID > 0)
             {
                 postObj.PostId = postID;
@@ -46,7 +48,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         public void Load_Post(int getPostID) {
             try
             {
-                clsPost clsPostObj = new clsPost();
+                clsPost clsPostObj = new();
                 var writerList = (List<Post>)clsPostObj.Get_Post(getPostID).ResultObject;
                 if (writerList.Count >0)
                 {
@@ -62,9 +64,11 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
-                uiComments commentsObj = new(_loggedUserDetailsObj, false);
-                commentsObj.userID = _loggedUserDetailsObj.userID;
-                commentsObj.postID = postID;
+                uiComments commentsObj = new(_loggedUserDetailsObj, false)
+                {
+                    userID = _loggedUserDetailsObj.userID,
+                    postID = postID
+                };
                 commentsObj.ShowDialog();
             }
             catch (Exception)
