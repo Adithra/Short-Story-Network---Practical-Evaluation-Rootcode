@@ -43,11 +43,11 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 Fill_Data("U");
             }
         }
-        private ClientResponse Fill_Data(string uRole, int userID = 0)
+        private ClientResponse Fill_Data(string uRole, int userID = 0, string userName = "")
         {
             try
             {
-                var writerList = (List<UserInfo>)clsWritersObj.Get_Writer_List(uRole,userID ).ResultObject;
+                var writerList = (List<UserInfo>)clsWritersObj.Get_Writer_List(uRole,userID , userName).ResultObject;
                 userList.DataSource = writerList;
                 this.userList.Columns["Id"].Visible = false;
                 this.userList.Columns["UserId"].Visible = false;
@@ -140,6 +140,20 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                     }
                     clsWritersObj.Set_Followers(followerList);
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void login_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                Fill_Data(_loggedUserDetailsObj.UserAccessType,0, userNameText.Text)
             }
             catch (Exception)
             {

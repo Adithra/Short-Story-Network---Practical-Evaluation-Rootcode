@@ -16,7 +16,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
         }
 
         #region "CRUD"  
-        public ClientResponse Get_Writer_List(string uRole, int userID = 0)
+        public ClientResponse Get_Writer_List(string uRole, int userID = 0, string userName = "")
         {
             List<UserInfo> result = new();
             List<Follower> followerObj;
@@ -25,11 +25,13 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
             {
                 using (var ctx = new ShortStoryNetworkContext())
                 {
+
+                    
                     if (userID != 0)
                     {
                         followerObj = ctx.Followers
                             .Where(re => re.ActiveUserID == userID)
-                            .Include(re => re.UserInfos)            
+                            .Include(re => re.UserInfos)
                             .ToList();
 
                         foreach (var item in followerObj)
@@ -37,16 +39,22 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                             result.Add(item.UserInfos);
                         }
                     }
+                    else if (userName == string.Empty)
+                    {
+                        result = ctx.UserInfoes
+                            .Where(re => re.UserId == userName)
+                            .ToList();
+                    }
                     else if (uRole == "U")
                     {
                         result = ctx.UserInfoes
-                       .ToList();
+                            .ToList();
                     }
                     else
                     {
                         result = ctx.UserInfoes
-                       .Where(re => re.UserRole == uRole)
-                       .ToList();
+                            .Where(re => re.UserRole == uRole)
+                            .ToList();
                     }
                     //var rol = UserRoles.writers.ToString();
                 }

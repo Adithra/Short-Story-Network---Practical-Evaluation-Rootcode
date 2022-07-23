@@ -131,8 +131,9 @@
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(75, 23);
             this.login.TabIndex = 4;
-            this.login.Text = "Login";
+            this.login.Text = "Search";
             this.login.UseVisualStyleBackColor = false;
+            this.login.Click += new System.EventHandler(this.login_Click);
             // 
             // userNameText
             // 
