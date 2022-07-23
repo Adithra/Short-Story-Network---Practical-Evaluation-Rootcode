@@ -1,4 +1,5 @@
 ﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Controlers;
+using Short_Story_Network___Practical_Evaluation_Rootcode.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,12 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
     {
         public int postID = 0;
         public int userID = 0;
+        private LoggedUserDetails _loggedUserDetailsObj;
 
-        public uiNewPost()
+        public uiNewPost(LoggedUserDetails loggedUserDetailsObj)
         {
             InitializeComponent();
+            _loggedUserDetailsObj = loggedUserDetailsObj;
         }
 
         clsPost clsPostObj = new();
