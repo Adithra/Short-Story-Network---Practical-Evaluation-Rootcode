@@ -30,7 +30,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             Post postObj = new();
             postObj.Post1 = postText.Text;
-            postObj.UserId = userID;
+            postObj.UserId = _loggedUserDetailsObj.userID;
             if (postID > 0)
             {
                 postObj.PostId = postID;
@@ -58,7 +58,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
                 uiComments commentsObj = new();
-                commentsObj.userID = userID;
+                commentsObj.userID = _loggedUserDetailsObj.userID;
                 commentsObj.ShowDialog();
             }
             catch (Exception)
