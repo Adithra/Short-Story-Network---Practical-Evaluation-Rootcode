@@ -61,6 +61,12 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 this.userList.Columns["UserId"].Visible = false;
                 this.userList.Columns["PasswordHash"].Visible = false;
                 this.userList.Columns["EmailAddress"].Visible = false;
+
+                foreach (DataGridViewColumn column in this.userList.Columns)
+                {
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                }
                 if (_loggedUserDetailsObj.UserAccessType != UserRoles.Moderators)
                 {
                     this.userList.Columns["UserRole"].Visible = false;
