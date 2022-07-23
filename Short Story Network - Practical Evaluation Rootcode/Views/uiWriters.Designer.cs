@@ -208,7 +208,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "uiWriters";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Statistics";
+            this.Text = "User List";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.uiWriters_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
