@@ -35,6 +35,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.GOTOPost = new System.Windows.Forms.Button();
             this.showAllUsers = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.login = new System.Windows.Forms.Button();
+            this.userNameText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.userList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -69,11 +72,14 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.GOTOPost);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.showAllUsers);
+            this.panel1.Controls.Add(this.userNameText);
+            this.panel1.Controls.Add(this.login);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 401);
+            this.panel1.Location = new System.Drawing.Point(0, 397);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 49);
+            this.panel1.Size = new System.Drawing.Size(800, 53);
             this.panel1.TabIndex = 1;
             // 
             // GOTOPost
@@ -83,7 +89,7 @@
             this.GOTOPost.FlatAppearance.BorderSize = 0;
             this.GOTOPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GOTOPost.ForeColor = System.Drawing.Color.White;
-            this.GOTOPost.Location = new System.Drawing.Point(520, 14);
+            this.GOTOPost.Location = new System.Drawing.Point(520, 18);
             this.GOTOPost.Name = "GOTOPost";
             this.GOTOPost.Size = new System.Drawing.Size(131, 23);
             this.GOTOPost.TabIndex = 2;
@@ -98,13 +104,42 @@
             this.showAllUsers.FlatAppearance.BorderSize = 0;
             this.showAllUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showAllUsers.ForeColor = System.Drawing.Color.White;
-            this.showAllUsers.Location = new System.Drawing.Point(657, 13);
+            this.showAllUsers.Location = new System.Drawing.Point(657, 17);
             this.showAllUsers.Name = "showAllUsers";
             this.showAllUsers.Size = new System.Drawing.Size(131, 23);
             this.showAllUsers.TabIndex = 2;
             this.showAllUsers.Text = "Show all users";
             this.showAllUsers.UseVisualStyleBackColor = false;
             this.showAllUsers.Click += new System.EventHandler(this.showAllUsers_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "User Name";
+            // 
+            // login
+            // 
+            this.login.BackColor = System.Drawing.Color.DodgerBlue;
+            this.login.FlatAppearance.BorderSize = 0;
+            this.login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.login.ForeColor = System.Drawing.Color.White;
+            this.login.Location = new System.Drawing.Point(279, 17);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(75, 23);
+            this.login.TabIndex = 4;
+            this.login.Text = "Login";
+            this.login.UseVisualStyleBackColor = false;
+            // 
+            // userNameText
+            // 
+            this.userNameText.Location = new System.Drawing.Point(12, 20);
+            this.userNameText.Name = "userNameText";
+            this.userNameText.Size = new System.Drawing.Size(255, 20);
+            this.userNameText.TabIndex = 3;
             // 
             // uiWriters
             // 
@@ -120,6 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -132,5 +168,8 @@
         private System.Windows.Forms.Button GOTOPost;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem followWriter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox userNameText;
+        private System.Windows.Forms.Button login;
     }
 }
