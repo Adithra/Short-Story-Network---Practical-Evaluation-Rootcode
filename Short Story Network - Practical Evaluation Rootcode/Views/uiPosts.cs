@@ -21,12 +21,12 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         }
         private void Load_Writers()
         {
-           
+
         }
 
         private void showAllUsers_Click(object sender, EventArgs e)
         {
-           
+
         }
         private ClientResponse Fill_Data(int userID)
         {
@@ -75,3 +75,19 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
             }
         }
+
+        private void showAllUsers_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                uiNewPost uiNewPostObj = new();
+                uiNewPostObj.Show();
+                Fill_Data(userID);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+    }

@@ -28,29 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.showAllUsers = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.userList = new System.Windows.Forms.DataGridView();
+            this.newPost = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userList)).BeginInit();
             this.SuspendLayout();
             // 
-            // showAllUsers
-            // 
-            this.showAllUsers.BackColor = System.Drawing.Color.DodgerBlue;
-            this.showAllUsers.FlatAppearance.BorderSize = 0;
-            this.showAllUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showAllUsers.ForeColor = System.Drawing.Color.White;
-            this.showAllUsers.Location = new System.Drawing.Point(657, 13);
-            this.showAllUsers.Name = "showAllUsers";
-            this.showAllUsers.Size = new System.Drawing.Size(131, 23);
-            this.showAllUsers.TabIndex = 2;
-            this.showAllUsers.Text = "Show all users";
-            this.showAllUsers.UseVisualStyleBackColor = false;
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.showAllUsers);
+            this.panel1.Controls.Add(this.newPost);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 401);
             this.panel1.Name = "panel1";
@@ -65,6 +52,20 @@
             this.userList.Name = "userList";
             this.userList.Size = new System.Drawing.Size(800, 450);
             this.userList.TabIndex = 2;
+            // 
+            // newPost
+            // 
+            this.newPost.BackColor = System.Drawing.Color.DodgerBlue;
+            this.newPost.FlatAppearance.BorderSize = 0;
+            this.newPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newPost.ForeColor = System.Drawing.Color.White;
+            this.newPost.Location = new System.Drawing.Point(657, 13);
+            this.newPost.Name = "newPost";
+            this.newPost.Size = new System.Drawing.Size(131, 23);
+            this.newPost.TabIndex = 2;
+            this.newPost.Text = "New Post";
+            this.newPost.UseVisualStyleBackColor = false;
+            this.newPost.Click += new System.EventHandler(this.showAllUsers_Click_1);
             // 
             // uiPosts
             // 
@@ -82,9 +83,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button showAllUsers;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView userList;
+        private System.Windows.Forms.Button newPost;
     }
 }

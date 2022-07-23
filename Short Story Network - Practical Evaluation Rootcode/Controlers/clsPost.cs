@@ -36,5 +36,23 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                 return new ClientResponse { ClientException = ex, State = false };
             }
         }
+
+        public ClientResponse Save_Date(Post postObj)
+        {
+            try
+            {
+                using (var ctx = new ShortStoryNetworkContext())
+                {
+                    ctx.Posts.Add(postObj);
+                    ctx.SaveChanges();
+                }
+                return new ClientResponse { Message = "", State = true };
+            }
+            catch (Exception ex)
+            {
+                return new ClientResponse { ClientException = ex, State = false };
+            }
+        }
+        #endregion
     }
 }
