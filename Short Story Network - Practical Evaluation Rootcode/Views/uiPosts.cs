@@ -33,12 +33,11 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         }
 
-        public ClientResponse Fill_Data(int userID)
+        public ClientResponse Fill_Data()
         {
             try
             {
                 clsPost clsPostObj = new clsPost();
-
                 var writerList = (List<Post>)clsPostObj.Get_Post_List(userID).ResultObject;
                 userList.DataSource = writerList;
                 this.userList.Columns["PostId"].Visible = false;
