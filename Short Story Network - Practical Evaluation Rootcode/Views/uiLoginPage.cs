@@ -1,10 +1,12 @@
-﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Controlers;
+﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Short_Story_Network___Practical_Evaluation_Rootcode.Controlers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,7 +29,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 PasswordHash = PassowrdText.Text
             };
             clsLoginPage clsLoginPageObj = new(userInfo);
-            clsLoginPageObj.Autoentication();
+            clsLoginPageObj.Autoentication(this);
 
         }
         #endregion
@@ -36,6 +38,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             uiUserRegistration userRegistrationObj = new();
             userRegistrationObj.ShowDialog();
-        }
+        }      
     }
 }

@@ -13,9 +13,10 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
 
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
-
+        public int SingleVowelCount { get; set; }
         public int PairVowelCount { get; set; }
-
         public int TotalWordCount { get; set; }
+        public string Post { get; set; }
+        public int PostId { get; set; }
     }
 }

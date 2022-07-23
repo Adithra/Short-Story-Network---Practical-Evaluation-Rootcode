@@ -12,28 +12,36 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
         private string _cannAccess = string.Empty;
         private UserAccessTypes _accessType = UserAccessTypes.Default;
 
-        private bool Access_Handler(UserRoles userRole, UserAccessTypes accessType)
+        public bool Access_Handler(UserRoles userRole, UserAccessTypes accessType)
         {
             try
             {
-                if (accessType == UserAccessTypes.CreatePost && userRole == UserRoles.Writers)
+                if (accessType == UserAccessTypes.CreatePost && (userRole == UserRoles.Editors || userRole == UserRoles.Writers) && userRole != UserRoles.Moderators)
                 {
                     return true;
 
                 }
-                else if (accessType == UserAccessTypes.EditPost && userRole == UserRoles.Writers)
+                else if (accessType == UserAccessTypes.EditPost && (userRole == UserRoles.Editors || userRole == UserRoles.Writers) && userRole != UserRoles.Moderators)
                 {
                     return true;
                 }
-                else if (accessType == UserAccessTypes.AddComment && userRole == UserRoles.Editors)
+                else if (accessType == UserAccessTypes.AddComment && userRole == UserRoles.Editors && userRole != UserRoles.Moderators)
                 {
                     return true;
                 }
-                else if (accessType == UserAccessTypes.EditComment && userRole == UserRoles.Editors)
+                else if (accessType == UserAccessTypes.EditComment && userRole == UserRoles.Editors && userRole != UserRoles.Moderators)
                 {
                     return true;
                 }
-                else if (accessType == UserAccessTypes.SetUserAccess && userRole == UserRoles.moderators)
+                else if (accessType == UserAccessTypes.SeeComments && (userRole == UserRoles.Editors || userRole == UserRoles.Writers) && userRole != UserRoles.Moderators)
+                {
+                    return true;
+                }
+                else if (accessType == UserAccessTypes.SetUserAccess && userRole == UserRoles.Moderators)
+                {
+                    return true;
+                }
+                else if (accessType == UserAccessTypes.Admin && userRole == UserRoles.Moderators)
                 {
                     return true;
                 }

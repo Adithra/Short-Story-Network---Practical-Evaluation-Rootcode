@@ -45,6 +45,7 @@
             // 
             // Confirm
             // 
+            this.Confirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Confirm.BackColor = System.Drawing.Color.DodgerBlue;
             this.Confirm.FlatAppearance.BorderSize = 0;
             this.Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -70,11 +71,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.commentText);
             this.Name = "uiComments";
-            this.Text = "uiComments";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Comment";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,4 +1,5 @@
 ﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Controlers;
+using Short_Story_Network___Practical_Evaluation_Rootcode.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,17 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 {
     public partial class uiPosts : Form
     {
-        public int userID = 0;
-        public uiPosts()
+        private LoggedUserDetails _loggedUserDetailsObj;
+        clsUserAccessHandler clsUserAccessHandler = new clsUserAccessHandler();
+        private bool _overrideAccess = false;
+
+
+        public uiPosts(LoggedUserDetails loggedUserDetailsObj, bool overrideAccess = false)
         {
             InitializeComponent();
+            _loggedUserDetailsObj = loggedUserDetailsObj;
+            _overrideAccess = overrideAccess;
+            UI_Handler();
         }
         private void Load_Writers()
         {
@@ -28,16 +36,17 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         }
 
-        public ClientResponse Fill_Data(int userID)
+        public ClientResponse Fill_Data(int userID = 0)
         {
             try
             {
                 clsPost clsPostObj = new clsPost();
-
                 var writerList = (List<Post>)clsPostObj.Get_Post_List(userID).ResultObject;
                 userList.DataSource = writerList;
                 this.userList.Columns["PostId"].Visible = false;
                 this.userList.Columns["UserId"].Visible = false;
+                this.userList.Columns["hasImage"].Visible = false;
+                this.userList.Columns["Image"].Visible = false;
 
                 return new ClientResponse { Message = "", State = true, ResultObject = true };
             }
@@ -79,10 +88,9 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
-                uiNewPost uiNewPostObj = new();
-                uiNewPostObj.userID = userID;
+                uiNewPost uiNewPostObj = new(_loggedUserDetailsObj, false, _loggedUserDetailsObj.userID);
                 uiNewPostObj.ShowDialog();
-                Fill_Data(userID);
+                Fill_Data(_loggedUserDetailsObj.userID);
             }
             catch (Exception)
             {
@@ -93,19 +101,36 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         private void uiPosts_Load(object sender, EventArgs e)
         {
-            Fill_Data(0);
+            Fill_Data(_loggedUserDetailsObj.userID);
         }
 
         private void userList_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                uiNewPost uiNewPostObj = new();
+                var userID = (int)this.userList.Rows[e.RowIndex].Cells["UserId"].Value;
+                uiNewPost uiNewPostObj = new(_loggedUserDetailsObj, _overrideAccess, userID);
                 var postID = (int)this.userList.Rows[e.RowIndex].Cells["PostId"].Value;
+                uiNewPostObj.Load_Post(postID);
                 uiNewPostObj.postID = postID;
-                uiNewPostObj.Load_Post();
                 uiNewPostObj.ShowDialog();
-                Fill_Data(userID);
+                if (!_overrideAccess)
+                {
+                    Fill_Data(_loggedUserDetailsObj.userID);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void UI_Handler()
+        {
+            try
+            {
+                newPost.Enabled = _overrideAccess != true && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.CreatePost);
             }
             catch (Exception)
             {

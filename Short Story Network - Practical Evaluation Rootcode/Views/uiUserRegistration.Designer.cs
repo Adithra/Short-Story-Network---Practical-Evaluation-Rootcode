@@ -42,6 +42,8 @@
             this.userNameText = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.availableState = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -71,7 +73,7 @@
             this.login.Location = new System.Drawing.Point(460, 216);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(75, 23);
-            this.login.TabIndex = 5;
+            this.login.TabIndex = 7;
             this.login.Text = "Register";
             this.login.UseVisualStyleBackColor = false;
             this.login.Click += new System.EventHandler(this.login_Click);
@@ -80,22 +82,24 @@
             // 
             this.PassowrdText.Location = new System.Drawing.Point(12, 174);
             this.PassowrdText.Name = "PassowrdText";
+            this.PassowrdText.PasswordChar = '*';
             this.PassowrdText.Size = new System.Drawing.Size(255, 20);
-            this.PassowrdText.TabIndex = 3;
+            this.PassowrdText.TabIndex = 5;
             // 
             // firstNameText
             // 
             this.firstNameText.Location = new System.Drawing.Point(12, 122);
             this.firstNameText.Name = "firstNameText";
             this.firstNameText.Size = new System.Drawing.Size(255, 20);
-            this.firstNameText.TabIndex = 4;
+            this.firstNameText.TabIndex = 3;
             // 
             // PassowrdConText
             // 
             this.PassowrdConText.Location = new System.Drawing.Point(280, 174);
             this.PassowrdConText.Name = "PassowrdConText";
+            this.PassowrdConText.PasswordChar = '*';
             this.PassowrdConText.Size = new System.Drawing.Size(255, 20);
-            this.PassowrdConText.TabIndex = 3;
+            this.PassowrdConText.TabIndex = 6;
             // 
             // label3
             // 
@@ -127,7 +131,7 @@
             this.emailAddressText.Location = new System.Drawing.Point(12, 70);
             this.emailAddressText.Name = "emailAddressText";
             this.emailAddressText.Size = new System.Drawing.Size(255, 20);
-            this.emailAddressText.TabIndex = 4;
+            this.emailAddressText.TabIndex = 2;
             // 
             // userIDText
             // 
@@ -143,7 +147,7 @@
             this.userNameText.Location = new System.Drawing.Point(12, 22);
             this.userNameText.Name = "userNameText";
             this.userNameText.Size = new System.Drawing.Size(255, 20);
-            this.userNameText.TabIndex = 4;
+            this.userNameText.TabIndex = 1;
             this.userNameText.Leave += new System.EventHandler(this.userNameText_Leave);
             // 
             // label5
@@ -163,6 +167,22 @@
             this.availableState.Size = new System.Drawing.Size(0, 13);
             this.availableState.TabIndex = 7;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(273, 70);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(374, 158);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 13);
+            this.label7.TabIndex = 7;
+            // 
             // uiUserRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,6 +193,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.availableState);
             this.Controls.Add(this.userIDText);
             this.Controls.Add(this.label1);
@@ -183,7 +205,11 @@
             this.Controls.Add(this.userNameText);
             this.Controls.Add(this.emailAddressText);
             this.Controls.Add(this.firstNameText);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "uiUserRegistration";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "User registration";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -206,5 +232,7 @@
         private System.Windows.Forms.TextBox userNameText;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label availableState;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

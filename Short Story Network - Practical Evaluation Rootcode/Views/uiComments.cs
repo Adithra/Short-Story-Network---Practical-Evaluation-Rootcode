@@ -1,4 +1,5 @@
 ﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Controlers;
+using Short_Story_Network___Practical_Evaluation_Rootcode.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +17,21 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         public int postID = 0;
         public int userID = 0;
-        public int commentID = 0;
+        private int _commentID = 0;
         clsComments clsCommentsObj = new();
+        private bool _overrideAccess = false;
+        private LoggedUserDetails _loggedUserDetailsObj;
+        private int _userPostID = 0;
 
-        public uiComments()
+        public uiComments(LoggedUserDetails loggedUserDetailsObj, bool overrideAccess = false, int commentID = 0, int userPostID = 0)
         {
             InitializeComponent();
+            _commentID = commentID;
+            _overrideAccess = overrideAccess;
+            _loggedUserDetailsObj = loggedUserDetailsObj;
+            _userPostID = userPostID;
+            Load_Comment();
+            UI_Handler();
         }
 
         private void Confirm_Click(object sender, EventArgs e)
@@ -31,13 +41,15 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 Comment commentObj = new()
                 {
                     Comment1 = commentText.Text,
-                    CreatedBy = userID
+                    CreatedBy = userID,
+                    PostID=postID 
                 };
-                if (commentID > 0)
+                if (_commentID > 0)
                 {
-                    commentObj.CommentID = commentID;
+                    commentObj.CommentID = _commentID;
                 }
                 clsCommentsObj.Save_Date(commentObj);
+                this.Close();
             }
             catch (Exception)
             {
@@ -46,18 +58,33 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             }
         }
 
-        public void Load_Post()
+        public void Load_Comment()
         {
             try
             {
-                var writerList = (List<Post>)clsCommentsObj.Get_Comments(commentID).ResultObject;
+                var writerList = (List<Comment>)clsCommentsObj.Get_Comments(_commentID).ResultObject;
                 if (writerList.Count > 0)
                 {
-                    commentText.Text = writerList[0].Post1.ToString();
+                    commentText.Text = writerList[0].Comment1.ToString();
                 }
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private void UI_Handler()
+        {
+            try
+            {
+                clsUserAccessHandler clsUserAccessHandler = new clsUserAccessHandler();
+                Confirm.Enabled = _overrideAccess != true && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.CreatePost)
+                    && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.EditPost);
+            }
+            catch (Exception e)
+            {
+
+                throw;
             }
         }
     }

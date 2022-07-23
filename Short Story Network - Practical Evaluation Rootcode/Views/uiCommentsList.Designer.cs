@@ -37,6 +37,7 @@
             // 
             // newPost
             // 
+            this.newPost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.newPost.BackColor = System.Drawing.Color.DodgerBlue;
             this.newPost.FlatAppearance.BorderSize = 0;
             this.newPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -71,11 +72,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.userList);
             this.Name = "uiCommentsList";
-            this.Text = "uiCommentsList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Comments List";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
             this.ResumeLayout(false);

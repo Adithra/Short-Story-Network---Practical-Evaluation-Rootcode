@@ -47,6 +47,7 @@
             // 
             this.PassowrdText.Location = new System.Drawing.Point(30, 112);
             this.PassowrdText.Name = "PassowrdText";
+            this.PassowrdText.PasswordChar = '*';
             this.PassowrdText.Size = new System.Drawing.Size(255, 20);
             this.PassowrdText.TabIndex = 0;
             // 
@@ -109,8 +110,11 @@
             this.Controls.Add(this.PassowrdText);
             this.Controls.Add(this.userNameText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "uiLoginPage";
-            this.Text = "Login page";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
