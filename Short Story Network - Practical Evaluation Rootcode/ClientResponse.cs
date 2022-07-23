@@ -9,10 +9,10 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
 {
     public enum UserRoles
     {
-        DefaultUser,
+        UnknowUser,
         Writers,
         Editors,
-        moderators
+        Moderators
     }
     public enum UserAccessTypes
     {
@@ -24,6 +24,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
         Follow,
         SetUserAccess
     }
+
     public class ClientResponse
     {
         private Exception clientException;

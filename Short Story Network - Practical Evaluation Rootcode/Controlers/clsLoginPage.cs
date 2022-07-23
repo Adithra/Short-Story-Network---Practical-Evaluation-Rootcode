@@ -1,4 +1,5 @@
-﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Views;
+﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Models;
+using Short_Story_Network___Practical_Evaluation_Rootcode.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
     public class clsLoginPage
     {
         private UserInfo _userInfoObj = new();
+        private LoggedUserDetails loggedUserDetailsObj = new();
 
         public clsLoginPage(UserInfo userInfoObj)
         {
@@ -48,10 +50,19 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
             {
 
                 var result = (List<UserInfo>)Autoentication_User().ResultObject;
+
                 if ((result.Count > 0))
                 {
-                    uiWriters writersObj = new();
-                    writersObj.userInfoObj = result[0];
+                    uiWriters writersObj = new()
+                    {
+                        userInfoObj = result[0]
+                    };
+                    //loggedUserDetailsObj.CreatedDate = DateTime.Now.Date);
+                    loggedUserDetailsObj.userID = result[0].Id;
+                    loggedUserDetailsObj.userName = result[0].UserId;
+                    loggedUserDetailsObj.userFullName = string.Concat(result[0].FirstName,string.Empty,result[0].LastName);
+                    loggedUserDetailsObj.UserAccessType = 
+
                     writersObj.ShowDialog();
                 }
                 else
