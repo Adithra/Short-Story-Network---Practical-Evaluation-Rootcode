@@ -99,6 +99,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                     if (writerList[0].hasImage)
                     {
                         pictureBox1.Image = ByteToImage(writerList[0].Image);
+                        panel2.Visible = true;
                     }
                 }
             }
@@ -163,6 +164,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
+                panel2.Visible = true;
                 OpenFileDialog dlg = new OpenFileDialog();
                 dlg.Filter = "";
 
