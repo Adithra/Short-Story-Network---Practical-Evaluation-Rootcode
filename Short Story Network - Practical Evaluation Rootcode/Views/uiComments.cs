@@ -29,9 +29,9 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             _commentID = commentID;
             _overrideAccess = overrideAccess;
             _loggedUserDetailsObj = loggedUserDetailsObj;
+            _userPostID = userPostID;
             Load_Comment();
             UI_Handler();
-            _userPostID = userPostID;
         }
 
         private void Confirm_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
                 clsUserAccessHandler clsUserAccessHandler = new clsUserAccessHandler();
-                Confirm.Enabled = _userPostID != _loggedUserDetailsObj.userID && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.CreatePost)
+                Confirm.Enabled = _overrideAccess != true && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.CreatePost)
                     && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.EditPost);
             }
             catch (Exception e)

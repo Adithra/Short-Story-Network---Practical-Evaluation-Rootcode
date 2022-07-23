@@ -62,7 +62,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
-                uiComments commentsObj = new(_loggedUserDetailsObj, _overrideAccess);
+                uiComments commentsObj = new(_loggedUserDetailsObj, false);
                 commentsObj.userID = _loggedUserDetailsObj.userID;
                 commentsObj.postID = postID;
                 commentsObj.ShowDialog();
