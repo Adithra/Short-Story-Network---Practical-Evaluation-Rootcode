@@ -156,7 +156,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                     }
                     else
                     {
-                        uPicBox.Image = Image.FromStream(CompreddedImageToByteArray(Image.FromFile(fileName), 20));
+                        pictureBox1.Image = Image.FromStream(CompreddedImageToByteArray(Image.FromFile(fileName), 20));
                         //Image img = (Image)uPicBox.Image;
                         ItemImage = null;
                         //img.Save(@"C:\Users\SPIL\OneDrive\Documents\Web developments\Downloads\new.jpeg");
@@ -172,7 +172,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 throw;
             }
         }
-
 
         private byte[] ImageHandler(string fileName)
         {
