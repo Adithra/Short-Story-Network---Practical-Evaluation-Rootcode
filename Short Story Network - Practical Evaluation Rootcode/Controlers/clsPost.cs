@@ -84,6 +84,38 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                 return new ClientResponse { ClientException = ex, State = false };
             }
         }
+
+        public ClientResponse Save_Word_Date(StatVowel statVowelObj)
+        {
+            try
+            {
+                using (var ctx = new ShortStoryNetworkContext())
+                {
+                    if (statVowelObj.PostId != null && statVowelObj.PostId == 0)
+                    {
+                        ctx.StatVowels.Add(statVowelObj);
+                        ctx.SaveChanges();
+                    }
+                    else
+                    {
+                        var selectedPost = ctx.StatVowels.First(a => a.PostId == statVowelObj.PostId);
+                        selectedPost.Post = statVowelObj.Post;
+                        selectedPost.TotalWordCount = statVowelObj.TotalWordCount;
+                        selectedPost.SingleVowelCount = statVowelObj.SingleVowelCount;
+                        selectedPost.PairVowelCount = statVowelObj.PairVowelCount;
+                        ctx.SaveChanges();
+                    }
+
+                }
+
+
+                return new ClientResponse { Message = "", State = true };
+            }
+            catch (Exception ex)
+            {
+                return new ClientResponse { ClientException = ex, State = false };
+            }
+        }
         #endregion
     }
 }

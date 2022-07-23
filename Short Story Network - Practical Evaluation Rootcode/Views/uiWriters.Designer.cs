@@ -34,10 +34,15 @@
             this.followWriter = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.GOTOPost = new System.Windows.Forms.Button();
-            this.showAllUsers = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.login = new System.Windows.Forms.Button();
+            this.showAllUsers = new System.Windows.Forms.Button();
             this.userNameText = new System.Windows.Forms.TextBox();
+            this.login = new System.Windows.Forms.Button();
+            this.setAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revokeEditorStateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bannToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unBanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unFollowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.userList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -58,14 +63,19 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.followWriter});
+            this.followWriter,
+            this.setAsToolStripMenuItem,
+            this.revokeEditorStateToolStripMenuItem,
+            this.bannToolStripMenuItem,
+            this.unBanToolStripMenuItem,
+            this.unFollowToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(110, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 136);
             // 
             // followWriter
             // 
             this.followWriter.Name = "followWriter";
-            this.followWriter.Size = new System.Drawing.Size(109, 22);
+            this.followWriter.Size = new System.Drawing.Size(180, 22);
             this.followWriter.Text = "Follow";
             this.followWriter.Click += new System.EventHandler(this.followWriter_Click);
             // 
@@ -97,6 +107,15 @@
             this.GOTOPost.UseVisualStyleBackColor = false;
             this.GOTOPost.Click += new System.EventHandler(this.GOTOPost_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "User Name";
+            // 
             // showAllUsers
             // 
             this.showAllUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -112,14 +131,12 @@
             this.showAllUsers.UseVisualStyleBackColor = false;
             this.showAllUsers.Click += new System.EventHandler(this.showAllUsers_Click);
             // 
-            // label1
+            // userNameText
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "User Name";
+            this.userNameText.Location = new System.Drawing.Point(12, 20);
+            this.userNameText.Name = "userNameText";
+            this.userNameText.Size = new System.Drawing.Size(255, 20);
+            this.userNameText.TabIndex = 3;
             // 
             // login
             // 
@@ -135,12 +152,35 @@
             this.login.UseVisualStyleBackColor = false;
             this.login.Click += new System.EventHandler(this.login_Click);
             // 
-            // userNameText
+            // setAsToolStripMenuItem
             // 
-            this.userNameText.Location = new System.Drawing.Point(12, 20);
-            this.userNameText.Name = "userNameText";
-            this.userNameText.Size = new System.Drawing.Size(255, 20);
-            this.userNameText.TabIndex = 3;
+            this.setAsToolStripMenuItem.Name = "setAsToolStripMenuItem";
+            this.setAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.setAsToolStripMenuItem.Text = "Set as Editor";
+            // 
+            // revokeEditorStateToolStripMenuItem
+            // 
+            this.revokeEditorStateToolStripMenuItem.Name = "revokeEditorStateToolStripMenuItem";
+            this.revokeEditorStateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revokeEditorStateToolStripMenuItem.Text = "Revoke Editor state";
+            // 
+            // bannToolStripMenuItem
+            // 
+            this.bannToolStripMenuItem.Name = "bannToolStripMenuItem";
+            this.bannToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bannToolStripMenuItem.Text = "Ban";
+            // 
+            // unBanToolStripMenuItem
+            // 
+            this.unBanToolStripMenuItem.Name = "unBanToolStripMenuItem";
+            this.unBanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.unBanToolStripMenuItem.Text = "UnBan";
+            // 
+            // unFollowToolStripMenuItem
+            // 
+            this.unFollowToolStripMenuItem.Name = "unFollowToolStripMenuItem";
+            this.unFollowToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.unFollowToolStripMenuItem.Text = "Unfollow";
             // 
             // uiWriters
             // 
@@ -172,5 +212,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox userNameText;
         private System.Windows.Forms.Button login;
+        private System.Windows.Forms.ToolStripMenuItem setAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem revokeEditorStateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bannToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unBanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unFollowToolStripMenuItem;
     }
 }

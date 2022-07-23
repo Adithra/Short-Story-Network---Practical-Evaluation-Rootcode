@@ -35,20 +35,54 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         private void Confirm_Click(object sender, EventArgs e)
         {
-            Post postObj = new()
+            try
             {
-                Post1 = postText.Text,
-                UserId = _loggedUserDetailsObj.userID,
-                hasImage = _hasImage
-            };
-            PicBox_Image_Validate(postObj);
+                Word_Count_Handler();
+                if (wordsCount > 500)
+                {
+                    MessageBox.Show("Word Count should be less than 500. Current count is " + wordsCount.ToString());
+                }
+                else
+                {
+                    Post postObj = new()
+                    {
+                        Post1 = postText.Text,
+                        UserId = _loggedUserDetailsObj.userID,
+                        hasImage = _hasImage
+                    };
+                    PicBox_Image_Validate(postObj);
 
-            if (postID > 0)
-            {
-                postObj.PostId = postID;
+                    if (postID > 0)
+                    {
+                        postObj.PostId = postID;
+                    }
+                    clsPostObj.Save_Date(postObj);
+
+                    Count_Handler();
+                    StatVowel statVowelObj = new()
+                    {
+                        Date = DateTime.Now,
+                        SingleVowelCount = singleVowel.Count,
+                        PairVowelCount = doubleVowel.Count,
+                        TotalWordCount = wordsCount,
+                        Post = postText.Text
+                    };
+
+                    if (postID > 0)
+                    {
+                        postObj.PostId = postID;
+                    }
+                    clsPostObj.Save_Word_Date(statVowelObj);
+
+                    this.Close();
+                }
             }
-            clsPostObj.Save_Date(postObj);
-            this.Close();
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
 
@@ -291,6 +325,64 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 mStream.Dispose();
             }
             return bm;
+        }
+        #endregion
+        #region Image Handlers
+        private void Word_Count_Handler()
+        {
+            try
+            {
+                var testValue = postText.Text;
+                int wordCount = 0, index = 0;
+                List<string> words = new List<string>();
+
+                // skip whitespace until first word
+                while (index < testValue.Length && char.IsWhiteSpace(testValue[index]))
+                    index++;
+
+                while (index < testValue.Length)
+                {
+                    // check if current char is part of a word
+                    while (index < testValue.Length && !char.IsWhiteSpace(testValue[index]))
+                        index++;
+                    wordCount++;
+
+                    // skip whitespace until next word
+                    while (index < testValue.Length && char.IsWhiteSpace(testValue[index]))
+                        index++;
+                }
+                wordsCount = wordCount;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+        private List<string> singleVowel;
+        private List<string> doubleVowel;
+        private int wordsCount;
+        private int Count_Handler()
+        {
+            try
+            {
+                var testValue = postText.Text;
+                string vowels = "aeiou";
+                List<string> words = testValue.Split(' ').ToList();
+                var vowelWords = words.Where(word => word.Any(c => vowels.Contains(c)))
+                        .ToList();
+
+                doubleVowel = vowelWords.Where(word => word.Count(c => vowels.Contains(c)) < 2)
+                     .ToList();
+
+                singleVowel = vowelWords.Where(word => word.Count(c => vowels.Contains(c)) < 3)
+                     .ToList();
+                return 1;
+            }
+            catch (Exception)
+            {
+
+                return 1;
+            }
         }
         #endregion
     }
