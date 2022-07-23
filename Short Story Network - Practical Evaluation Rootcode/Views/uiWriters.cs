@@ -78,8 +78,10 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
-                var userID = this.userList.Rows[e.RowIndex].Cells["Id"].Value;
-                var test = 1;
+                var userID = (int)this.userList.Rows[e.RowIndex].Cells["Id"].Value;
+                uiPosts uiPostsObj = new();
+                uiPostsObj.userID = userID;
+                uiPostsObj.ShowDialog();
             }
             catch (Exception)
             {
