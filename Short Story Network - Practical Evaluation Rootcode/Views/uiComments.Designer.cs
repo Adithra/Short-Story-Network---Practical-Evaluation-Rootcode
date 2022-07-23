@@ -45,6 +45,7 @@
             // 
             // Confirm
             // 
+            this.Confirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Confirm.BackColor = System.Drawing.Color.DodgerBlue;
             this.Confirm.FlatAppearance.BorderSize = 0;
             this.Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -75,7 +76,7 @@
             this.Controls.Add(this.commentText);
             this.Name = "uiComments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "uiComments";
+            this.Text = "Comment";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

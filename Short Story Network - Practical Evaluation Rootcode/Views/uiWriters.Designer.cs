@@ -78,6 +78,7 @@
             // 
             // GOTOPost
             // 
+            this.GOTOPost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.GOTOPost.BackColor = System.Drawing.Color.DodgerBlue;
             this.GOTOPost.FlatAppearance.BorderSize = 0;
             this.GOTOPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -92,6 +93,7 @@
             // 
             // showAllUsers
             // 
+            this.showAllUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.showAllUsers.BackColor = System.Drawing.Color.DodgerBlue;
             this.showAllUsers.FlatAppearance.BorderSize = 0;
             this.showAllUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -113,7 +115,7 @@
             this.Controls.Add(this.userList);
             this.Name = "uiWriters";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "uiWriters";
+            this.Text = "User List";
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

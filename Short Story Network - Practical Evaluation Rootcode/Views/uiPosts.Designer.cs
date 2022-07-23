@@ -46,6 +46,7 @@
             // 
             // newPost
             // 
+            this.newPost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.newPost.BackColor = System.Drawing.Color.DodgerBlue;
             this.newPost.FlatAppearance.BorderSize = 0;
             this.newPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -54,7 +55,7 @@
             this.newPost.Name = "newPost";
             this.newPost.Size = new System.Drawing.Size(131, 23);
             this.newPost.TabIndex = 2;
-            this.newPost.Text = "New Post";
+            this.newPost.Text = "Posts List";
             this.newPost.UseVisualStyleBackColor = false;
             this.newPost.Click += new System.EventHandler(this.showAllUsers_Click_1);
             // 

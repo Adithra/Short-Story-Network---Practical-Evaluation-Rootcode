@@ -37,6 +37,7 @@
             // 
             // newPost
             // 
+            this.newPost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.newPost.BackColor = System.Drawing.Color.DodgerBlue;
             this.newPost.FlatAppearance.BorderSize = 0;
             this.newPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -75,7 +76,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.userList);
             this.Name = "uiCommentsList";
-            this.Text = "CenterScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Comments List";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
             this.ResumeLayout(false);

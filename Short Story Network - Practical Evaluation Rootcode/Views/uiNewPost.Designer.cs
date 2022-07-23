@@ -58,6 +58,7 @@
             // 
             // seeComments
             // 
+            this.seeComments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.seeComments.BackColor = System.Drawing.Color.DodgerBlue;
             this.seeComments.FlatAppearance.BorderSize = 0;
             this.seeComments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -72,6 +73,7 @@
             // 
             // addComment
             // 
+            this.addComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addComment.BackColor = System.Drawing.Color.DodgerBlue;
             this.addComment.FlatAppearance.BorderSize = 0;
             this.addComment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -86,6 +88,7 @@
             // 
             // Confirm
             // 
+            this.Confirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Confirm.BackColor = System.Drawing.Color.DodgerBlue;
             this.Confirm.FlatAppearance.BorderSize = 0;
             this.Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

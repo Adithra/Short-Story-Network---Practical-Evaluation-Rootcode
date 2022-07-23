@@ -183,6 +183,9 @@
             this.Controls.Add(this.userNameText);
             this.Controls.Add(this.emailAddressText);
             this.Controls.Add(this.firstNameText);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "uiUserRegistration";
             this.Text = "User registration";
             this.ResumeLayout(false);
