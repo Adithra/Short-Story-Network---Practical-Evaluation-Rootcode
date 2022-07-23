@@ -38,11 +38,11 @@
             this.showAllUsers = new System.Windows.Forms.Button();
             this.userNameText = new System.Windows.Forms.TextBox();
             this.login = new System.Windows.Forms.Button();
-            this.setAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.revokeEditorStateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bannToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unBanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unFollowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setAsEditor = new System.Windows.Forms.ToolStripMenuItem();
+            this.revokeEditorState = new System.Windows.Forms.ToolStripMenuItem();
+            this.bann = new System.Windows.Forms.ToolStripMenuItem();
+            this.unBan = new System.Windows.Forms.ToolStripMenuItem();
+            this.unfollowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.userList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -64,13 +64,13 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.followWriter,
-            this.setAsToolStripMenuItem,
-            this.revokeEditorStateToolStripMenuItem,
-            this.bannToolStripMenuItem,
-            this.unBanToolStripMenuItem,
-            this.unFollowToolStripMenuItem});
+            this.setAsEditor,
+            this.revokeEditorState,
+            this.bann,
+            this.unBan,
+            this.unfollowToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 158);
             // 
             // followWriter
             // 
@@ -152,35 +152,35 @@
             this.login.UseVisualStyleBackColor = false;
             this.login.Click += new System.EventHandler(this.login_Click);
             // 
-            // setAsToolStripMenuItem
+            // setAsEditor
             // 
-            this.setAsToolStripMenuItem.Name = "setAsToolStripMenuItem";
-            this.setAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.setAsToolStripMenuItem.Text = "Set as Editor";
+            this.setAsEditor.Name = "setAsEditor";
+            this.setAsEditor.Size = new System.Drawing.Size(180, 22);
+            this.setAsEditor.Text = "Set as Editor";
             // 
-            // revokeEditorStateToolStripMenuItem
+            // revokeEditorState
             // 
-            this.revokeEditorStateToolStripMenuItem.Name = "revokeEditorStateToolStripMenuItem";
-            this.revokeEditorStateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.revokeEditorStateToolStripMenuItem.Text = "Revoke Editor state";
+            this.revokeEditorState.Name = "revokeEditorState";
+            this.revokeEditorState.Size = new System.Drawing.Size(180, 22);
+            this.revokeEditorState.Text = "Revoke Editor state";
             // 
-            // bannToolStripMenuItem
+            // bann
             // 
-            this.bannToolStripMenuItem.Name = "bannToolStripMenuItem";
-            this.bannToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.bannToolStripMenuItem.Text = "Ban";
+            this.bann.Name = "bann";
+            this.bann.Size = new System.Drawing.Size(180, 22);
+            this.bann.Text = "Ban";
             // 
-            // unBanToolStripMenuItem
+            // unBan
             // 
-            this.unBanToolStripMenuItem.Name = "unBanToolStripMenuItem";
-            this.unBanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.unBanToolStripMenuItem.Text = "UnBan";
+            this.unBan.Name = "unBan";
+            this.unBan.Size = new System.Drawing.Size(180, 22);
+            this.unBan.Text = "UnBan";
             // 
-            // unFollowToolStripMenuItem
+            // unfollowToolStripMenuItem
             // 
-            this.unFollowToolStripMenuItem.Name = "unFollowToolStripMenuItem";
-            this.unFollowToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.unFollowToolStripMenuItem.Text = "Unfollow";
+            this.unfollowToolStripMenuItem.Name = "unfollowToolStripMenuItem";
+            this.unfollowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.unfollowToolStripMenuItem.Text = "Unfollow";
             // 
             // uiWriters
             // 
@@ -212,10 +212,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox userNameText;
         private System.Windows.Forms.Button login;
-        private System.Windows.Forms.ToolStripMenuItem setAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem revokeEditorStateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bannToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem unBanToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem unFollowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setAsEditor;
+        private System.Windows.Forms.ToolStripMenuItem revokeEditorState;
+        private System.Windows.Forms.ToolStripMenuItem bann;
+        private System.Windows.Forms.ToolStripMenuItem unBan;
+        private System.Windows.Forms.ToolStripMenuItem unfollowToolStripMenuItem;
     }
 }
