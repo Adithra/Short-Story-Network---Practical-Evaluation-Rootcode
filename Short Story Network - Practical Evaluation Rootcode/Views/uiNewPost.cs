@@ -38,11 +38,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
                 Word_Count_Handler();
-                if (wordsCount > 500)
-                {
-                    MessageBox.Show("Word Count should be less than 500. Current count is " + wordsCount.ToString());
-                }
-                else
+                if ( (_hasImage && wordsCount <= 50) || (!_hasImage && wordsCount <= 500))
                 {
                     Post postObj = new()
                     {
@@ -75,6 +71,12 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                     clsPostObj.Save_Word_Date(statVowelObj);
 
                     this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Word Count should be less than 500. Current count is " + wordsCount.ToString());
+
+
                 }
             }
             catch (Exception)

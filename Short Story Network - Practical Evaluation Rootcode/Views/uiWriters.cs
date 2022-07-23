@@ -127,10 +127,10 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             {
                 clsUserAccessHandler clsUserAccessHandler = new clsUserAccessHandler();
                 GOTOPost.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.SeeComments);
-                setAsEditor.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
-                revokeEditorState.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
-                bann.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
-                unBan.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
+                setAsEditor.Visible = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
+                revokeEditorState.Visible = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
+                bann.Visible = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
+                unBan.Visible = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
                 showAllUsers.Enabled = _loggedUserDetailsObj.UserAccessType == UserRoles.Moderators? false : true;
             }
             catch (Exception)
