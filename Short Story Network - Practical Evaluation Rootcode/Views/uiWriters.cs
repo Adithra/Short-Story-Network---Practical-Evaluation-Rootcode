@@ -82,7 +82,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
                 var userID = (int)this.userList.Rows[e.RowIndex].Cells["id"].Value;
-                uiPosts uiPostsObj = new();
+                uiPosts uiPostsObj = new(_loggedUserDetailsObj);
                 uiPostsObj.Fill_Data(userID);
                 uiPostsObj.ShowDialog();
             }

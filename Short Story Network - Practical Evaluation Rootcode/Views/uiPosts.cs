@@ -1,4 +1,5 @@
 ﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Controlers;
+using Short_Story_Network___Practical_Evaluation_Rootcode.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,13 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
     public partial class uiPosts : Form
     {
         public int userID = 0;
-        public uiPosts()
+        private LoggedUserDetails _loggedUserDetailsObj;
+
+
+        public uiPosts(LoggedUserDetails loggedUserDetailsObj)
         {
             InitializeComponent();
+            _loggedUserDetailsObj = loggedUserDetailsObj;
         }
         private void Load_Writers()
         {
