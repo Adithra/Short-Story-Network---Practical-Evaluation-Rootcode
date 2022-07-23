@@ -156,10 +156,9 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                     }
                     else
                     {
-                        pictureBox1.Image = Image.FromStream(CompreddedImageToByteArray(Image.FromFile(fileName), 20));
+                        pictureBox1.Image = Image.FromStream(CompreddedImageToByteArray(Image.FromFile(fileName), 2));
                         //Image img = (Image)uPicBox.Image;
                         ItemImage = null;
-                        //img.Save(@"C:\Users\SPIL\OneDrive\Documents\Web developments\Downloads\new.jpeg");
                         //MessageBox.Show("Please select an image less than 1MB");
                     }
 
