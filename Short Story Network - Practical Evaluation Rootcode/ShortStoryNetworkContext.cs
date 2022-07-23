@@ -15,6 +15,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<StatVowel> StatVowels { get; set; }
         public virtual DbSet<UserInfo> UserInfoes { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
