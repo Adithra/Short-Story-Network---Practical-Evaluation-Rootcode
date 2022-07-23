@@ -15,7 +15,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
         public Form1()
         {
             InitializeComponent();
-            Form1 test = new Form1();
+            //Form1 test = new Form1();
         }
     }
 }
