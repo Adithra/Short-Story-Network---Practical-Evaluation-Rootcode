@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,16 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         private void Confirm_Click(object sender, EventArgs e)
         {
+            FileStream fs;
+            BinaryReader br;
+            string FileName = button1.Tag;
+            byte[] ImageData;
+            fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
+            br = new BinaryReader(fs);
+            ImageData = br.ReadBytes((int)fs.Length);
+            br.Close();
+            fs.Close();
+
             Post postObj = new()
             {
                 Post1 = postText.Text,
@@ -104,6 +115,25 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 seeComments.Enabled = _overrideAccess != true && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.SeeComments);
                 Confirm.Enabled = _overrideAccess != true && _userPostID == _loggedUserDetailsObj.userID && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.CreatePost)
                     && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.EditPost);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog open = new OpenFileDialog();
+                open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.Image = new Bitmap(open.FileName);
+                    button1.Tag = open.FileName;
+                }
             }
             catch (Exception)
             {
