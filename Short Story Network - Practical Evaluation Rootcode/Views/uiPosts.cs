@@ -86,7 +86,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
-                uiNewPost uiNewPostObj = new(_loggedUserDetailsObj);
+                uiNewPost uiNewPostObj = new(_loggedUserDetailsObj, false, _loggedUserDetailsObj.userID);
                 uiNewPostObj.ShowDialog();
                 Fill_Data(_loggedUserDetailsObj.userID);
             }

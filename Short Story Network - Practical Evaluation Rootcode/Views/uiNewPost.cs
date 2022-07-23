@@ -21,7 +21,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         private LoggedUserDetails _loggedUserDetailsObj;
         private bool _overrideAccess = false;
         private int _userPostID = 0;
-
+        private bool _hasImage = false;
         public uiNewPost(LoggedUserDetails loggedUserDetailsObj, bool overrideAccess = false, int userPostID = 0)
         {
             InitializeComponent();
@@ -34,13 +34,14 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         clsPost clsPostObj = new();
 
         private void Confirm_Click(object sender, EventArgs e)
-        {          
-
+        {
             Post postObj = new()
             {
                 Post1 = postText.Text,
                 UserId = _loggedUserDetailsObj.userID
             };
+            PicBox_Image_Validate(postObj);
+
             if (postID > 0)
             {
                 postObj.PostId = postID;
@@ -176,30 +177,33 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 dlg.DefaultExt = ".jpg"; // Default file extension 
 
                 // Show open file dialog box 
-                dlg.ShowDialog();
+                var result =dlg.ShowDialog();
 
-                string fileName = dlg.FileName;
+                if (result == DialogResult.OK)
+                {
+                    _hasImage = true;
+                    string fileName = dlg.FileName;
 
-                if (fileName == "" || fileName == null)
-                {
-                }
-                else
-                {
-                    if (ValidFile(dlg.FileName, 102400))
+                    if (fileName == "" || fileName == null)
                     {
-                        pictureBox1.Image = Image.FromFile(fileName);
-                        ItemImage = null;
                     }
                     else
                     {
-                        pictureBox1.Image = Image.FromStream(CompreddedImageToByteArray(Image.FromFile(fileName), 2));
-                        //Image img = (Image)uPicBox.Image;
-                        ItemImage = null;
-                        //MessageBox.Show("Please select an image less than 1MB");
+                        if (ValidFile(dlg.FileName, 102400))
+                        {
+                            pictureBox1.Image = Image.FromFile(fileName);
+                            ItemImage = null;
+                        }
+                        else
+                        {
+                            pictureBox1.Image = Image.FromStream(CompreddedImageToByteArray(Image.FromFile(fileName), 2));
+                            //Image img = (Image)uPicBox.Image;
+                            ItemImage = null;
+                            //MessageBox.Show("Please select an image less than 1MB");
+                        }
+
                     }
-
                 }
-
             }
             catch (Exception)
             {
