@@ -16,12 +16,14 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
     {
         private LoggedUserDetails _loggedUserDetailsObj;
         clsUserAccessHandler clsUserAccessHandler = new clsUserAccessHandler();
+        private bool _overrideAccess = false;
 
 
-        public uiPosts(LoggedUserDetails loggedUserDetailsObj)
+        public uiPosts(LoggedUserDetails loggedUserDetailsObj, bool overrideAccess = false)
         {
             InitializeComponent();
             _loggedUserDetailsObj = loggedUserDetailsObj;
+            _overrideAccess = overrideAccess;
             UI_Handler();
         }
         private void Load_Writers()
@@ -103,13 +105,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         private void userList_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             try
-            {
-                if (clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.SeeComments))
-                {
-
-                } 
-
-                uiNewPost uiNewPostObj = new(_loggedUserDetailsObj);
+            { 
+                uiNewPost uiNewPostObj = new(_loggedUserDetailsObj, true);
                 var postID = (int)this.userList.Rows[e.RowIndex].Cells["PostId"].Value;
                 uiNewPostObj.Load_Post(postID);
                 uiNewPostObj.ShowDialog();
@@ -126,7 +123,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
-                newPost.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.AddComment);
+                newPost.Enabled = _overrideAccess != true && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.AddComment);
             }
             catch (Exception)
             {

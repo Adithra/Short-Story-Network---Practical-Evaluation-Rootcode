@@ -16,12 +16,12 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
         {
             try
             {
-                if (accessType == UserAccessTypes.CreatePost && userRole == UserRoles.Writers)
+                if (accessType == UserAccessTypes.CreatePost && (userRole == UserRoles.Editors || userRole == UserRoles.Writers))
                 {
                     return true;
 
                 }
-                else if (accessType == UserAccessTypes.EditPost && userRole == UserRoles.Writers)
+                else if (accessType == UserAccessTypes.EditPost && (userRole == UserRoles.Editors || userRole == UserRoles.Writers))
                 {
                     return true;
                 }

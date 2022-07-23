@@ -17,11 +17,13 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         public int postID = 0;
         public int userID = 0;
         private LoggedUserDetails _loggedUserDetailsObj;
+        private bool _overrideAccess = false;
 
-        public uiNewPost(LoggedUserDetails loggedUserDetailsObj)
+        public uiNewPost(LoggedUserDetails loggedUserDetailsObj, bool overrideAccess = false)
         {
             InitializeComponent();
             _loggedUserDetailsObj = loggedUserDetailsObj;
+            _overrideAccess = overrideAccess;
             UI_Handler();
         }
 
@@ -90,9 +92,9 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
                 clsUserAccessHandler clsUserAccessHandler = new clsUserAccessHandler(); 
-                addComment.Enabled= clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.AddComment);
-                seeComments.Enabled= clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.SeeComments);
-                seeComments.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.CreatePost)
+                addComment.Enabled= _overrideAccess != true && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.AddComment);
+                seeComments.Enabled= _overrideAccess != true && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.SeeComments);
+                seeComments.Enabled = _overrideAccess != true && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.CreatePost)
                     && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.EditPost);
             }
             catch (Exception)
