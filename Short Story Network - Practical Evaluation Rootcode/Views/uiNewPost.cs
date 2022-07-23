@@ -96,7 +96,10 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 if (writerList.Count >0)
                 {
                     postText.Text = writerList[0].Post1.ToString();
-                    pictureBox1.Image = ByteToImage(writerList[0].Image);
+                    if (writerList[0].hasImage)
+                    {
+                        pictureBox1.Image = ByteToImage(writerList[0].Image);
+                    }
                 }
             }
             catch (Exception ex)
