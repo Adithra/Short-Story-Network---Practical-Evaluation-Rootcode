@@ -55,7 +55,7 @@
             this.newPost.Name = "newPost";
             this.newPost.Size = new System.Drawing.Size(131, 23);
             this.newPost.TabIndex = 2;
-            this.newPost.Text = "Posts List";
+            this.newPost.Text = "New PostPosts";
             this.newPost.UseVisualStyleBackColor = false;
             this.newPost.Click += new System.EventHandler(this.showAllUsers_Click_1);
             // 

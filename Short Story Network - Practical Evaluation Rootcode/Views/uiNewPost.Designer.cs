@@ -43,6 +43,7 @@
             // 
             // postText
             // 
+            this.postText.BackColor = System.Drawing.Color.WhiteSmoke;
             this.postText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.postText.Location = new System.Drawing.Point(0, 0);
             this.postText.Multiline = true;
@@ -130,6 +131,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 274);
             this.panel2.TabIndex = 4;
+            this.panel2.Visible = false;
             // 
             // pictureBox1
             // 

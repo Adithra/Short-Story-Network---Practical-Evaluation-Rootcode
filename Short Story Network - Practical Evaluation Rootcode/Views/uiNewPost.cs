@@ -36,7 +36,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             FileStream fs;
             BinaryReader br;
-            string FileName = button1.Tag;
+            string FileName = button1.Tag.ToString();
             byte[] ImageData;
             fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
             br = new BinaryReader(fs);
@@ -127,6 +127,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
+                panel2.Visible = true;
                 OpenFileDialog open = new OpenFileDialog();
                 open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
                 if (open.ShowDialog() == DialogResult.OK)
