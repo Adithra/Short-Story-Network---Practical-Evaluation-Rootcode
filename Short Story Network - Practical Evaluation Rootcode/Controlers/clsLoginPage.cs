@@ -44,11 +44,12 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
 
 
 
-        public void Autoentication()
+        public void Autoentication(uiLoginPage Obj)
         {
             try
             {
-
+                Obj.Close();
+                Obj.Dispose();
                 var result = (List<UserInfo>)Autoentication_User().ResultObject;
 
                 if ((result.Count > 0))
