@@ -21,12 +21,30 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                         .Where(re => re.UserId == ID)
                         .ToList();
                 }
-                return new ClientResponse { Message = "", State = result.Count >0?true:false, ResultObject = result };
+                return new ClientResponse { Message = "", State = result.Count > 0, ResultObject = result };
             }
             catch (Exception ex)
             {
                 return new ClientResponse { ClientException = ex };
             }
         }
+
+        public ClientResponse Save_Date(UserInfo userInfoObj)
+        {
+            try
+            {
+                using (var ctx = new ShortStoryNetworkContext())
+                {
+                    ctx.UserInfoes.Add(userInfoObj);
+                    ctx.SaveChanges();
+                }
+                return new ClientResponse { Message = "", State = true };
+            }
+            catch (Exception ex)
+            {
+                return new ClientResponse { ClientException = ex, State = false };
+            }
+        }
+        #endregion
     }
 }

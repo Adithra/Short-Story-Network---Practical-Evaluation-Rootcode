@@ -36,7 +36,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
             }
             catch (Exception ex)
             {
-                return new ClientResponse { ClientException = ex };
+                return new ClientResponse { ClientException = ex, State = false };
             }
         }
         #endregion

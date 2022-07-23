@@ -33,7 +33,7 @@
             this.login = new System.Windows.Forms.Button();
             this.PassowrdText = new System.Windows.Forms.TextBox();
             this.firstNameText = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.PassowrdConText = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lastNameText = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,6 +41,7 @@
             this.userIDText = new System.Windows.Forms.Label();
             this.userNameText = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.availableState = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -89,12 +90,12 @@
             this.firstNameText.Size = new System.Drawing.Size(255, 20);
             this.firstNameText.TabIndex = 4;
             // 
-            // textBox1
+            // PassowrdConText
             // 
-            this.textBox1.Location = new System.Drawing.Point(280, 174);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(255, 20);
-            this.textBox1.TabIndex = 3;
+            this.PassowrdConText.Location = new System.Drawing.Point(280, 174);
+            this.PassowrdConText.Name = "PassowrdConText";
+            this.PassowrdConText.Size = new System.Drawing.Size(255, 20);
+            this.PassowrdConText.TabIndex = 3;
             // 
             // label3
             // 
@@ -143,6 +144,7 @@
             this.userNameText.Name = "userNameText";
             this.userNameText.Size = new System.Drawing.Size(255, 20);
             this.userNameText.TabIndex = 4;
+            this.userNameText.Leave += new System.EventHandler(this.userNameText_Leave);
             // 
             // label5
             // 
@@ -152,6 +154,15 @@
             this.label5.Size = new System.Drawing.Size(72, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Email address";
+            // 
+            // availableState
+            // 
+            this.availableState.AutoSize = true;
+            this.availableState.Location = new System.Drawing.Point(273, 22);
+            this.availableState.Name = "availableState";
+            this.availableState.Size = new System.Drawing.Size(49, 13);
+            this.availableState.TabIndex = 7;
+            this.availableState.Text = "available";
             // 
             // uiUserRegistration
             // 
@@ -163,9 +174,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.availableState);
             this.Controls.Add(this.userIDText);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.PassowrdConText);
             this.Controls.Add(this.login);
             this.Controls.Add(this.lastNameText);
             this.Controls.Add(this.PassowrdText);
@@ -186,7 +198,7 @@
         private System.Windows.Forms.Button login;
         private System.Windows.Forms.TextBox PassowrdText;
         private System.Windows.Forms.TextBox firstNameText;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox PassowrdConText;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox lastNameText;
         private System.Windows.Forms.Label label4;
@@ -194,5 +206,6 @@
         private System.Windows.Forms.Label userIDText;
         private System.Windows.Forms.TextBox userNameText;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label availableState;
     }
 }
