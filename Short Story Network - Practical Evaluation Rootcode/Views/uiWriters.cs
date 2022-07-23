@@ -18,7 +18,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         public uiWriters()
         {
             InitializeComponent();
-            Load_Writers();
         }
 
         private void Load_Writers()

@@ -27,7 +27,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                        .Where(re => re.UserId == userID)
                        .ToList();
                     }
-                    var rol = UserRoles.writers.ToString();
+                    //var rol = UserRoles.writers.ToString();
                 }
                 return new ClientResponse { Message = "", State = true, ResultObject = result };
             }

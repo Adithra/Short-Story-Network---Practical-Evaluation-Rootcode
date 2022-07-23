@@ -50,7 +50,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
-                var writerList = (List<Post>)clsCommentsObj.Get_Comments(postID).ResultObject;
+                var writerList = (List<Post>)clsCommentsObj.Get_Comments(commentID).ResultObject;
                 if (writerList.Count > 0)
                 {
                     commentText.Text = writerList[0].Post1.ToString();

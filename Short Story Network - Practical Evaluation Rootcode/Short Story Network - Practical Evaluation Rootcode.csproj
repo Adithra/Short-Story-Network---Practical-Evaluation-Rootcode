@@ -63,6 +63,7 @@
     <Compile Include="Controlers\clsComments.cs" />
     <Compile Include="Controlers\clsLoginPage.cs" />
     <Compile Include="Controlers\clsPost.cs" />
+    <Compile Include="Controlers\clsUserAccessHandler.cs" />
     <Compile Include="Controlers\clsUserRegistration.cs" />
     <Compile Include="Controlers\clsUser.cs" />
     <Compile Include="Form1.cs">
@@ -138,6 +139,9 @@
     </Compile>
     <EmbeddedResource Include="Views\uiComments.resx">
       <DependentUpon>uiComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\uiCommentsList.resx">
+      <DependentUpon>uiCommentsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\uiLoginPage.resx">
       <DependentUpon>uiLoginPage.cs</DependentUpon>

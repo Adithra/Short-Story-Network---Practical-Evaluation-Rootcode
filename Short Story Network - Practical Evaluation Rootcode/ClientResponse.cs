@@ -9,12 +9,21 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
 {
     public enum UserRoles
     {
-        defaultUser = 'U',
-        writers = 'W',
-        Editors = 'E',
-        moderators = 'M'
+        DefaultUser,
+        Writers,
+        Editors,
+        moderators
     }
-
+    public enum UserAccessTypes
+    {
+        Default,
+        CreatePost,
+        EditPost,
+        AddComment,
+        EditComment,
+        Follow,
+        SetUserAccess
+    }
     public class ClientResponse
     {
         private Exception clientException;

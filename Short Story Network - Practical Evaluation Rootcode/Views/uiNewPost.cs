@@ -52,7 +52,33 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         private void addComment_Click(object sender, EventArgs e)
         {
+            try
+            {
+                uiComments commentsObj = new();
+                commentsObj.userID = userID;
+                commentsObj.ShowDialog();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+
+        }
+
+        private void seeComments_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                uiCommentsList commentsListObj = new();
+                commentsListObj.Fill_Data(postID);
+                commentsListObj.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

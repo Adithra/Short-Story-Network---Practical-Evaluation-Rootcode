@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Confirm = new System.Windows.Forms.Button();
             this.addComment = new System.Windows.Forms.Button();
+            this.seeComments = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.seeComments);
             this.panel1.Controls.Add(this.addComment);
             this.panel1.Controls.Add(this.Confirm);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -82,6 +84,20 @@
             this.addComment.UseVisualStyleBackColor = false;
             this.addComment.Click += new System.EventHandler(this.addComment_Click);
             // 
+            // seeComments
+            // 
+            this.seeComments.BackColor = System.Drawing.Color.DodgerBlue;
+            this.seeComments.FlatAppearance.BorderSize = 0;
+            this.seeComments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.seeComments.ForeColor = System.Drawing.Color.White;
+            this.seeComments.Location = new System.Drawing.Point(383, 14);
+            this.seeComments.Name = "seeComments";
+            this.seeComments.Size = new System.Drawing.Size(131, 23);
+            this.seeComments.TabIndex = 2;
+            this.seeComments.Text = "See Comment";
+            this.seeComments.UseVisualStyleBackColor = false;
+            this.seeComments.Click += new System.EventHandler(this.seeComments_Click);
+            // 
             // uiNewPost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,5 +119,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Confirm;
         private System.Windows.Forms.Button addComment;
+        private System.Windows.Forms.Button seeComments;
     }
 }

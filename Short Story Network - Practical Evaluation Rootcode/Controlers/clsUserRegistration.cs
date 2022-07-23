@@ -16,7 +16,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
             {
                 using (var ctx = new ShortStoryNetworkContext())
                 {
-                    var rol = UserRoles.writers.ToString();
+                    //var rol = UserRoles.writers.ToString();
                     result = ctx.UserInfoes
                         .Where(re => re.UserId == ID)
                         .ToList();
