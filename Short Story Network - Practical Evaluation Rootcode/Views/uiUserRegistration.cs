@@ -20,7 +20,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         clsUserRegistration userRegistrationObj = new();
         private void login_Click(object sender, EventArgs e)
         {
-
+            Save_Date();
         }
 
         private void userNameText_Leave(object sender, EventArgs e)

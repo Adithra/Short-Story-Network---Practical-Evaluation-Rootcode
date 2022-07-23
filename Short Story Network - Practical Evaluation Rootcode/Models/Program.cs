@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new uiLoginPage());
         }
     }
 }
