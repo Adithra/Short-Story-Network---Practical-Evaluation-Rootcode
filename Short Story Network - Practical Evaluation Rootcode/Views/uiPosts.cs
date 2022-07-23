@@ -15,12 +15,14 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
     public partial class uiPosts : Form
     {
         private LoggedUserDetails _loggedUserDetailsObj;
+        clsUserAccessHandler clsUserAccessHandler = new clsUserAccessHandler();
 
 
         public uiPosts(LoggedUserDetails loggedUserDetailsObj)
         {
             InitializeComponent();
             _loggedUserDetailsObj = loggedUserDetailsObj;
+            UI_Handler();
         }
         private void Load_Writers()
         {
@@ -102,11 +104,29 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
+                if (clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.SeeComments))
+                {
+
+                } 
+
                 uiNewPost uiNewPostObj = new(_loggedUserDetailsObj);
                 var postID = (int)this.userList.Rows[e.RowIndex].Cells["PostId"].Value;
                 uiNewPostObj.Load_Post(postID);
                 uiNewPostObj.ShowDialog();
                 Fill_Data(postID);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void UI_Handler()
+        {
+            try
+            {
+                newPost.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.AddComment);
             }
             catch (Exception)
             {
