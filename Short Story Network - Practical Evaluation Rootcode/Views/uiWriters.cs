@@ -21,11 +21,29 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         private void Load_Writers()
         {
+            Fill_Data("W");
+        }
+
+        private void showAllUsers_Click(object sender, EventArgs e)
+        {
+            if (showAllUsers.Text == "Show writers only")
+            {
+                Fill_Data("W");
+                showAllUsers.Text = "Show all users";
+            }
+            else
+            {
+                showAllUsers.Text = "Show writers only";
+                Fill_Data("A");
+            }
+        }
+        private ClientResponse Fill_Data(string uRole)
+        {
             try
             {
                 clsUser clsWritersObj = new clsUser();
 
-                var writerList = (List<UserInfo>)clsWritersObj.Get_Writer_List().ResultObject;
+                var writerList = (List<UserInfo>)clsWritersObj.Get_Writer_List(uRole).ResultObject;
                 userList.DataSource = writerList;
                 this.userList.Columns["UserId"].Visible = false;
                 this.userList.Columns["PasswordHash"].Visible = false;
@@ -33,12 +51,13 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 this.userList.Columns["UserRole"].Visible = false;
                 this.userList.Columns["IsEditor"].Visible = false;
                 this.userList.Columns["IsBanned"].Visible = false;
-            }
-            catch (Exception)
-            {
 
-                throw;
+                return new ClientResponse { Message = "", State = true, ResultObject = true };
             }
-        }        
+            catch (Exception ex)
+            {
+                return new ClientResponse { ClientException = ex, State = false };
+            }
+        }
     }
 }

@@ -15,17 +15,25 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
         }
 
         #region "CRUD"  
-        public ClientResponse Get_Writer_List()
+        public ClientResponse Get_Writer_List(string uRole)
         {
             List<UserInfo> result;
             try
             {
                 using (var ctx = new ShortStoryNetworkContext())
                 {
+                    if (uRole == "A")
+                    {
+                       result = ctx.UserInfoes
+                      .ToList();
+                    }
+                    else
+                    {
+                        result = ctx.UserInfoes
+                       .Where(re => re.UserRole == uRole)
+                       .ToList();
+                    }
                     var rol = UserRoles.writers.ToString();
-                    result = ctx.UserInfoes
-                        .Where(re => re.UserRole == "M")
-                        .ToList();
                 }
                 return new ClientResponse { Message = "", State = true, ResultObject = result };
             }
