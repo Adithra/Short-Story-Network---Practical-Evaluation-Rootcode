@@ -36,7 +36,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "uiLoginPage";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Text = "Login page";
             this.ResumeLayout(false);
 

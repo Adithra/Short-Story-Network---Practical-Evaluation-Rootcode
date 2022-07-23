@@ -10,7 +10,11 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
     public partial class UserInfo
     {
         [Key]
-        public int UserId { get; set; }
+        public int Id { get; set; }
+
+        [Required]
+        [StringLength(20)]
+        public string UserId { get; set; }
 
         [Required]
         [StringLength(100)]
