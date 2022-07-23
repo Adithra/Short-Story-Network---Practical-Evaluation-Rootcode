@@ -79,7 +79,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Passowrd";
+            this.label2.Text = "Password";
             // 
             // uiLoginPage
             // 

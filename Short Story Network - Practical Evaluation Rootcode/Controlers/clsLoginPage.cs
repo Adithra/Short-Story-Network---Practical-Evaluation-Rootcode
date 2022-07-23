@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                         .Where(re => re.PasswordHash== _password)
                         .ToList();
                 }
-                return new ClientResponse { Message = "", State = true, ResultObject = result };
+                return new ClientResponse { Message = "Success", State = true, ResultObject = result };
             }
             catch (Exception ex)
             {
@@ -49,7 +50,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
 
                 if (((List<UserInfo>)Autoentication_User().ResultObject).Count > 0)
                 {
-                    //login
+                    uiWriters writersObj = new();
+                    writersObj.Show();
                 }
                 else
                 {

@@ -7,6 +7,14 @@ using System.Threading.Tasks;
 
 namespace Short_Story_Network___Practical_Evaluation_Rootcode
 {
+    public enum UserRoles
+    {
+        defaultUser = 'U',
+        writers = 'W',
+        Editors = 'E',
+        moderators = 'M'
+    }
+
     public class ClientResponse
     {
         private Exception clientException;

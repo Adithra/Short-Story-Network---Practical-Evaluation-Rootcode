@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
         public Form1()
         {
             InitializeComponent();
-            //Form1 test = new Form1();
+            uiWriters test = new uiWriters();
+            test.ShowDialog();
         }
     }
 }

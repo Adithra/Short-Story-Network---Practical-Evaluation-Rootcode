@@ -16,5 +16,10 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             InitializeComponent();
         }
+
+        private void login_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
