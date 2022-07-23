@@ -73,6 +73,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Follower.cs" />
     <Compile Include="Models\LoggedUserDetails.cs" />
     <Compile Include="ShortStoryNetworkContext.cs" />
     <Compile Include="Models\Post.cs" />

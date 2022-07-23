@@ -30,15 +30,15 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         private void showAllUsers_Click(object sender, EventArgs e)
         {
-            if (showAllUsers.Text == "Show writers only")
+            if (showAllUsers.Text == "Show Follower only")
             {
-                Fill_Data("U");
+                Fill_Data("F");
                 showAllUsers.Text = "Show all users";
             }
             else
             {
-                showAllUsers.Text = "Show writers only";
-                Fill_Data("A");
+                showAllUsers.Text = "Show Follower only";
+                Fill_Data("U");
             }
         }
         private ClientResponse Fill_Data(string uRole)
