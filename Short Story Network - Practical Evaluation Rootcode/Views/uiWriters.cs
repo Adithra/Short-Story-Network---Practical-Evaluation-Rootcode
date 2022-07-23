@@ -61,7 +61,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 this.userList.Columns["UserId"].Visible = false;
                 this.userList.Columns["PasswordHash"].Visible = false;
                 this.userList.Columns["EmailAddress"].Visible = false;
-
+                this.userList.Columns["FirstName"].HeaderText = "First Name";
+                this.userList.Columns["LastName"].HeaderText = "Last Name";
                 foreach (DataGridViewColumn column in this.userList.Columns)
                 {
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
