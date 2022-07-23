@@ -139,6 +139,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 bann.Visible = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
                 unBan.Visible = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
                 showAllUsers.Enabled = _loggedUserDetailsObj.UserAccessType == UserRoles.Moderators? false : true;
+                button1.Visible = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
             }
             catch (Exception)
             {
@@ -263,6 +264,12 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             System.Windows.Forms.Application.Exit();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            uiStatistics uiStatisticsOBj = new();
+            uiStatisticsOBj.Show();
         }
     }
 }
