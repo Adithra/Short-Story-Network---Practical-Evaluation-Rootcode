@@ -37,6 +37,25 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
             }
         }
 
+        public ClientResponse Get_Post(int postID)
+        {
+            List<Post> result;
+            try
+            {
+                using (var ctx = new ShortStoryNetworkContext())
+                {
+                    result = ctx.Posts
+                   .Where(re => re.PostId == postID)
+                   .ToList();
+                }
+                return new ClientResponse { Message = "", State = true, ResultObject = result };
+            }
+            catch (Exception ex)
+            {
+                return new ClientResponse { ClientException = ex, State = false };
+            }
+        }
+
         public ClientResponse Save_Date(Post postObj)
         {
             try
@@ -46,8 +65,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                     ctx.Posts.Add(postObj);
                     ctx.SaveChanges();
                 }
-
-                var author = context.Authors.First(a => a.AuthorId == 1);
+                //var ctx = new ShortStoryNetworkContext();
+                //var author = ctx.Posts.First(a => a.PostId == postObj.PostId);
 
 
                 return new ClientResponse { Message = "", State = true };

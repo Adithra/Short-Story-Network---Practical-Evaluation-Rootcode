@@ -13,6 +13,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 {
     public partial class uiWriters : Form
     {
+        public UserInfo userInfoObj = new UserInfo();
+
         public uiWriters()
         {
             InitializeComponent();
@@ -81,7 +83,24 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 var userID = (int)this.userList.Rows[e.RowIndex].Cells["Id"].Value;
                 uiPosts uiPostsObj = new();
                 uiPostsObj.userID = userID;
+                uiPostsObj.Fill_Data(0);
                 uiPostsObj.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void GOTOPost_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                uiPosts uiNewPostObj = new();
+                uiNewPostObj.userID = userInfoObj.Id;
+                uiNewPostObj.Fill_Data(userInfoObj.Id);
+                uiNewPostObj.Show();
             }
             catch (Exception)
             {

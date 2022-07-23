@@ -17,7 +17,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         public uiPosts()
         {
             InitializeComponent();
-            Fill_Data(0);
         }
         private void Load_Writers()
         {
@@ -28,7 +27,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
 
         }
-        private ClientResponse Fill_Data(int userID)
+
+        public ClientResponse Fill_Data(int userID)
         {
             try
             {
@@ -66,7 +66,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
                 var userID = this.userList.Rows[e.RowIndex].Cells["Id"].Value;
-                var test = 1;
             }
             catch (Exception)
             {
@@ -81,7 +80,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
                 uiNewPost uiNewPostObj = new();
-                uiNewPostObj.Show();
+                uiNewPostObj.userID = userID;
+                uiNewPostObj.ShowDialog();
                 Fill_Data(userID);
             }
             catch (Exception)
@@ -90,4 +90,27 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 throw;
             }
         }
+
+        private void uiPosts_Load(object sender, EventArgs e)
+        {
+            Fill_Data(0);
+        }
+
+        private void userList_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                uiNewPost uiNewPostObj = new();
+                var postID = (int)this.userList.Rows[e.RowIndex].Cells["PostId"].Value;
+                uiNewPostObj.postID = postID;
+                uiNewPostObj.Load_Post();
+                uiNewPostObj.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
+}

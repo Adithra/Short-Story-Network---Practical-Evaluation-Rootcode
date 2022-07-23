@@ -10,13 +10,12 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
 {
     public class clsLoginPage
     {
-        private string _userName;
-        private string _password;
+        private UserInfo _userInfoObj = new();
 
         public clsLoginPage(UserInfo userInfoObj)
         {
-            _userName = userInfoObj.UserId;
-            _password = userInfoObj.PasswordHash;
+            _userInfoObj.UserId = userInfoObj.UserId;
+            _userInfoObj.PasswordHash = userInfoObj.PasswordHash;
         }
 
         #region "CRUD"  
@@ -28,8 +27,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                 using (var ctx = new ShortStoryNetworkContext())
                 {
                     result = ctx.UserInfoes
-                        .Where(re => re.UserId == _userName)
-                        .Where(re => re.PasswordHash== _password)
+                        .Where(re => re.UserId == _userInfoObj.UserId)
+                        .Where(re => re.PasswordHash== _userInfoObj.PasswordHash)
                         .ToList();
                 }
                 return new ClientResponse { Message = "Success", State = true, ResultObject = result };
@@ -48,10 +47,12 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
             try
             {
 
-                if (((List<UserInfo>)Autoentication_User().ResultObject).Count > 0)
+                var result = (List<UserInfo>)Autoentication_User().ResultObject;
+                if ((result.Count > 0))
                 {
                     uiWriters writersObj = new();
-                    writersObj.Show();
+                    writersObj.userInfoObj = result[0];
+                    writersObj.ShowDialog();
                 }
                 else
                 {

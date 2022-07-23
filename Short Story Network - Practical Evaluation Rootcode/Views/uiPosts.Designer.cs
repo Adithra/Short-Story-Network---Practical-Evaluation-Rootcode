@@ -52,6 +52,7 @@
             this.userList.Name = "userList";
             this.userList.Size = new System.Drawing.Size(800, 450);
             this.userList.TabIndex = 2;
+            this.userList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userList_CellDoubleClick_1);
             // 
             // newPost
             // 
