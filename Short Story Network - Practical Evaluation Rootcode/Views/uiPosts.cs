@@ -47,7 +47,11 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 this.userList.Columns["UserId"].Visible = false;
                 this.userList.Columns["hasImage"].Visible = false;
                 this.userList.Columns["Image"].Visible = false;
+                foreach (DataGridViewColumn column in this.userList.Columns)
+                {
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+                }
                 return new ClientResponse { Message = "", State = true, ResultObject = true };
             }
             catch (Exception ex)
