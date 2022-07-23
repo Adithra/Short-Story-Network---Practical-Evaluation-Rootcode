@@ -43,6 +43,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 postObj.PostId = postID;
             }
             clsPostObj.Save_Date(postObj);
+            this.Close();
         }
 
         public void Load_Post(int getPostID) {

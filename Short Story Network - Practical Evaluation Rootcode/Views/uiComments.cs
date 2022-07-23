@@ -49,6 +49,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                     commentObj.CommentID = _commentID;
                 }
                 clsCommentsObj.Save_Date(commentObj);
+                this.Close();
             }
             catch (Exception)
             {
