@@ -98,7 +98,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
                 uiPosts uiNewPostObj = new(_loggedUserDetailsObj);
-                uiNewPostObj.Fill_Data(userInfoObj.Id);
+                uiNewPostObj.Fill_Data(_loggedUserDetailsObj.userID);
                 uiNewPostObj.Show();
             }
             catch (Exception)
