@@ -60,6 +60,7 @@
             // 
             // userList
             // 
+            this.userList.BackgroundColor = System.Drawing.Color.White;
             this.userList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userList.Location = new System.Drawing.Point(0, 0);

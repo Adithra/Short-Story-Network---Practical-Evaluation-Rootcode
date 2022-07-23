@@ -49,6 +49,7 @@
             // 
             // userList
             // 
+            this.userList.BackgroundColor = System.Drawing.Color.White;
             this.userList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userList.ContextMenuStrip = this.contextMenuStrip1;
             this.userList.Dock = System.Windows.Forms.DockStyle.Fill;
