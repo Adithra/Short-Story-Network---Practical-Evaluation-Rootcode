@@ -110,6 +110,7 @@
             this.Controls.Add(this.userNameText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "uiLoginPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login page";
             this.ResumeLayout(false);
             this.PerformLayout();

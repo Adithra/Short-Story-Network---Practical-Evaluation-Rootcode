@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.userList = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.followWriter = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.GOTOPost = new System.Windows.Forms.Button();
             this.showAllUsers = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.followWriter = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.userList)).BeginInit();
-            this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // userList
@@ -51,6 +51,20 @@
             this.userList.TabIndex = 0;
             this.userList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userList_CellClick);
             this.userList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userList_CellDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.followWriter});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(110, 26);
+            // 
+            // followWriter
+            // 
+            this.followWriter.Name = "followWriter";
+            this.followWriter.Size = new System.Drawing.Size(109, 22);
+            this.followWriter.Text = "Follow";
+            this.followWriter.Click += new System.EventHandler(this.followWriter_Click);
             // 
             // panel1
             // 
@@ -90,20 +104,6 @@
             this.showAllUsers.UseVisualStyleBackColor = false;
             this.showAllUsers.Click += new System.EventHandler(this.showAllUsers_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.followWriter});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
-            // 
-            // followWriter
-            // 
-            this.followWriter.Name = "followWriter";
-            this.followWriter.Size = new System.Drawing.Size(180, 22);
-            this.followWriter.Text = "Follow";
-            this.followWriter.Click += new System.EventHandler(this.followWriter_Click);
-            // 
             // uiWriters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,10 +112,11 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.userList);
             this.Name = "uiWriters";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "uiWriters";
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

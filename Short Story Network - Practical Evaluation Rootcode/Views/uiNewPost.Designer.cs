@@ -30,9 +30,9 @@
         {
             this.postText = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Confirm = new System.Windows.Forms.Button();
-            this.addComment = new System.Windows.Forms.Button();
             this.seeComments = new System.Windows.Forms.Button();
+            this.addComment = new System.Windows.Forms.Button();
+            this.Confirm = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,19 +56,19 @@
             this.panel1.Size = new System.Drawing.Size(800, 49);
             this.panel1.TabIndex = 2;
             // 
-            // Confirm
+            // seeComments
             // 
-            this.Confirm.BackColor = System.Drawing.Color.DodgerBlue;
-            this.Confirm.FlatAppearance.BorderSize = 0;
-            this.Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Confirm.ForeColor = System.Drawing.Color.White;
-            this.Confirm.Location = new System.Drawing.Point(657, 13);
-            this.Confirm.Name = "Confirm";
-            this.Confirm.Size = new System.Drawing.Size(131, 23);
-            this.Confirm.TabIndex = 2;
-            this.Confirm.Text = "Save";
-            this.Confirm.UseVisualStyleBackColor = false;
-            this.Confirm.Click += new System.EventHandler(this.Confirm_Click);
+            this.seeComments.BackColor = System.Drawing.Color.DodgerBlue;
+            this.seeComments.FlatAppearance.BorderSize = 0;
+            this.seeComments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.seeComments.ForeColor = System.Drawing.Color.White;
+            this.seeComments.Location = new System.Drawing.Point(383, 14);
+            this.seeComments.Name = "seeComments";
+            this.seeComments.Size = new System.Drawing.Size(131, 23);
+            this.seeComments.TabIndex = 2;
+            this.seeComments.Text = "See Comment";
+            this.seeComments.UseVisualStyleBackColor = false;
+            this.seeComments.Click += new System.EventHandler(this.seeComments_Click);
             // 
             // addComment
             // 
@@ -84,19 +84,19 @@
             this.addComment.UseVisualStyleBackColor = false;
             this.addComment.Click += new System.EventHandler(this.addComment_Click);
             // 
-            // seeComments
+            // Confirm
             // 
-            this.seeComments.BackColor = System.Drawing.Color.DodgerBlue;
-            this.seeComments.FlatAppearance.BorderSize = 0;
-            this.seeComments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.seeComments.ForeColor = System.Drawing.Color.White;
-            this.seeComments.Location = new System.Drawing.Point(383, 14);
-            this.seeComments.Name = "seeComments";
-            this.seeComments.Size = new System.Drawing.Size(131, 23);
-            this.seeComments.TabIndex = 2;
-            this.seeComments.Text = "See Comment";
-            this.seeComments.UseVisualStyleBackColor = false;
-            this.seeComments.Click += new System.EventHandler(this.seeComments_Click);
+            this.Confirm.BackColor = System.Drawing.Color.DodgerBlue;
+            this.Confirm.FlatAppearance.BorderSize = 0;
+            this.Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Confirm.ForeColor = System.Drawing.Color.White;
+            this.Confirm.Location = new System.Drawing.Point(657, 13);
+            this.Confirm.Name = "Confirm";
+            this.Confirm.Size = new System.Drawing.Size(131, 23);
+            this.Confirm.TabIndex = 2;
+            this.Confirm.Text = "Save";
+            this.Confirm.UseVisualStyleBackColor = false;
+            this.Confirm.Click += new System.EventHandler(this.Confirm_Click);
             // 
             // uiNewPost
             // 
@@ -106,6 +106,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.postText);
             this.Name = "uiNewPost";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "uiNewPost";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

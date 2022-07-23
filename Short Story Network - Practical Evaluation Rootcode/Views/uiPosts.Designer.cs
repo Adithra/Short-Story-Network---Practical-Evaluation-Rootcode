@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.userList = new System.Windows.Forms.DataGridView();
             this.newPost = new System.Windows.Forms.Button();
+            this.userList = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userList)).BeginInit();
             this.SuspendLayout();
@@ -43,16 +43,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 49);
             this.panel1.TabIndex = 3;
-            // 
-            // userList
-            // 
-            this.userList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userList.Location = new System.Drawing.Point(0, 0);
-            this.userList.Name = "userList";
-            this.userList.Size = new System.Drawing.Size(800, 450);
-            this.userList.TabIndex = 2;
-            this.userList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userList_CellDoubleClick_1);
             // 
             // newPost
             // 
@@ -68,6 +58,16 @@
             this.newPost.UseVisualStyleBackColor = false;
             this.newPost.Click += new System.EventHandler(this.showAllUsers_Click_1);
             // 
+            // userList
+            // 
+            this.userList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userList.Location = new System.Drawing.Point(0, 0);
+            this.userList.Name = "userList";
+            this.userList.Size = new System.Drawing.Size(800, 450);
+            this.userList.TabIndex = 2;
+            this.userList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userList_CellDoubleClick_1);
+            // 
             // uiPosts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -76,6 +76,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.userList);
             this.Name = "uiPosts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "uiPosts";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();

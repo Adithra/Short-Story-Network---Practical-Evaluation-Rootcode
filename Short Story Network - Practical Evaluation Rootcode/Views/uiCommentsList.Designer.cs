@@ -75,7 +75,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.userList);
             this.Name = "uiCommentsList";
-            this.Text = "uiCommentsList";
+            this.Text = "CenterScreen";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
             this.ResumeLayout(false);
