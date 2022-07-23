@@ -161,5 +161,36 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 throw;
             }
         }
+
+        private void setAsEditor_Click(object sender, EventArgs e)
+        {
+            Set_User_States();
+        }
+
+        private void Set_User_States()
+        {
+            try
+            {
+                List<UserInfo> infoList = new();
+                if (this.userList.SelectedRows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in this.userList.SelectedRows)
+                    {
+                        infoList.Add(new UserInfo
+                        {
+                            Id = (int)row.Cells["id"].Value,
+                            IsBanned = (bool)row.Cells["IsBanned"].Value,
+                            IsEditor = (bool)row.Cells["IsEditor"].Value
+                        });
+                    }
+                    clsWritersObj.Set_User_State(infoList);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -25,8 +25,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
             {
                 using (var ctx = new ShortStoryNetworkContext())
                 {
-
-                    
                     if (userID != 0)
                     {
                         followerObj = ctx.Followers
@@ -76,7 +74,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                     {
                         ctx.Followers.Add(follower);
                         ctx.SaveChanges();
-                    }                      
+                    }
                 }
                 return new ClientResponse { Message = "Success", State = true, ResultObject = true };
             }
@@ -85,6 +83,30 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                 return new ClientResponse { ClientException = ex, State = false };
             }
         }
+
+        public ClientResponse Set_User_State(List<UserInfo> userInfoeList)
+        {
+            try
+            {
+                using (var ctx = new ShortStoryNetworkContext())
+                {
+                    foreach (var user in userInfoeList)
+                    {
+                        var selectedPost = ctx.UserInfoes.First(a => a.Id == user.Id);
+                        selectedPost.IsBanned = user.IsBanned;
+                        selectedPost.IsEditor = user.IsEditor;
+                        ctx.UserInfoes.Add(selectedPost);
+                        ctx.SaveChanges();
+                    }
+                }
+                return new ClientResponse { Message = "Success", State = true, ResultObject = true };
+            }
+            catch (Exception ex)
+            {
+                return new ClientResponse { ClientException = ex, State = false };
+            }
+        }
+
         #endregion
     }
 }

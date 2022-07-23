@@ -157,6 +157,7 @@
             this.setAsEditor.Name = "setAsEditor";
             this.setAsEditor.Size = new System.Drawing.Size(180, 22);
             this.setAsEditor.Text = "Set as Editor";
+            this.setAsEditor.Click += new System.EventHandler(this.setAsEditor_Click);
             // 
             // revokeEditorState
             // 
