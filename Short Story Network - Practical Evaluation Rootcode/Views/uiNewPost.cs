@@ -230,7 +230,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                     }
                     else
                     {
-                        if (ValidFile(dlg.FileName, 102400))
+                        if (ValidFile(dlg.FileName, 2064922))
                         {
                             pictureBox1.Image = Image.FromFile(fileName);
                             ItemImage = null;
