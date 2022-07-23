@@ -52,7 +52,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         }
 
 
-        private void PicBox_Image_Validate(Post postObj) {
+        private void PicBox_Image_Validate(Post postObj)
+        {
             try
             {
                 try
@@ -81,7 +82,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 catch (Exception e)
                 {
                     MessageBox.Show(e.Message, "Image Validation error");
-                }               
+                }
             }
             catch (Exception)
             {
@@ -90,12 +91,13 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             }
         }
 
-        public void Load_Post(int getPostID) {
+        public void Load_Post(int getPostID)
+        {
             try
             {
                 clsPost clsPostObj = new();
                 var writerList = (List<Post>)clsPostObj.Get_Post(getPostID).ResultObject;
-                if (writerList.Count >0)
+                if (writerList.Count > 0)
                 {
                     postText.Text = writerList[0].Post1.ToString();
                     if (writerList[0].hasImage)
@@ -160,6 +162,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 throw;
             }
         }
+
+        #region Image Handlers
         public byte[] ItemImage = null;
 
         private void button1_Click(object sender, EventArgs e)
@@ -178,7 +182,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 dlg.DefaultExt = ".jpg"; // Default file extension 
 
                 // Show open file dialog box 
-                var result =dlg.ShowDialog();
+                var result = dlg.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
@@ -288,6 +292,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             }
             return bm;
         }
-
+        #endregion
     }
 }
