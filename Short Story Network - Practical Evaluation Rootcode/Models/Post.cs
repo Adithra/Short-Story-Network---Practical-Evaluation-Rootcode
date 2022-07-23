@@ -16,5 +16,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
         [Column("Post")]
         [Required]
         public string Post1 { get; set; }
+
+        public byte[] Image { get; set; }
     }
 }

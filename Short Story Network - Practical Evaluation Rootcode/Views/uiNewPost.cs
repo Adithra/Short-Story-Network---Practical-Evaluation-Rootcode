@@ -34,16 +34,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         clsPost clsPostObj = new();
 
         private void Confirm_Click(object sender, EventArgs e)
-        {
-            FileStream fs;
-            BinaryReader br;
-            string FileName = button1.Tag.ToString();
-            byte[] ImageData;
-            fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
-            br = new BinaryReader(fs);
-            ImageData = br.ReadBytes((int)fs.Length);
-            br.Close();
-            fs.Close();
+        {          
 
             Post postObj = new()
             {
@@ -58,6 +49,45 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             this.Close();
         }
 
+
+        private void PicBox_Image_Validate(Post postObj) {
+            try
+            {
+                try
+                {
+                    if (ItemImage != null && ItemImage.GetType() == typeof(byte[]))
+                    {
+
+                        postObj.Image = ItemImage;
+
+                    }
+                    else if (pictureBox1.Image != null && pictureBox1.Image.GetType() == typeof(Bitmap))
+                    {
+                        postObj.Image = ImageToByteArray((Bitmap)pictureBox1.Image);
+                    }
+                    else if (pictureBox1.Image == null)
+                    {
+                        Byte[] array = new Byte[64];
+                        Array.Clear(array, 0, array.Length);
+                        postObj.Image = array;
+                    }
+                    else
+                    {
+                        postObj.Image = ImageToByteArray((Bitmap)pictureBox1.Image);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Image Validation error");
+                }               
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public void Load_Post(int getPostID) {
             try
             {
@@ -66,7 +96,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 if (writerList.Count >0)
                 {
                     postText.Text = writerList[0].Post1.ToString();
-                } 
+                    pictureBox1.Image = ByteToImage(writerList[0].Image);
+                }
             }
             catch (Exception ex)
             {
@@ -205,11 +236,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             }
         }
 
-        /// <summary> 
-        /// Saves an image as a jpeg image, with the given quality 
-        /// </summary> 
-        /// <param name="path"> Path to which the image would be saved. </param> 
-        /// <param name="quality"> An integer from 0 to 100, with 100 being the highest quality. </param> 
         public MemoryStream CompreddedImageToByteArray(Image img, int quality)
         {
             if (quality < 0 || quality > 100)
@@ -227,9 +253,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         }
 
-        /// <summary> 
-        /// Returns the image codec with the given mime type 
-        /// </summary> 
         private static ImageCodecInfo GetEncoderInfo(string mimeType)
         {
             // Get image codecs for all image formats 
