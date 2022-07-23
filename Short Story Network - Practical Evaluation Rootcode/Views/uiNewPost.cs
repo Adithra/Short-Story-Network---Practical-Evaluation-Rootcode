@@ -38,7 +38,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             Post postObj = new()
             {
                 Post1 = postText.Text,
-                UserId = _loggedUserDetailsObj.userID
+                UserId = _loggedUserDetailsObj.userID,
+                hasImage = _hasImage
             };
             PicBox_Image_Validate(postObj);
 

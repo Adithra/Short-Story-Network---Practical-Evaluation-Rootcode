@@ -45,6 +45,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 userList.DataSource = writerList;
                 this.userList.Columns["PostId"].Visible = false;
                 this.userList.Columns["UserId"].Visible = false;
+                this.userList.Columns["hasImage"].Visible = false;
+                this.userList.Columns["Image"].Visible = false;
 
                 return new ClientResponse { Message = "", State = true, ResultObject = true };
             }
