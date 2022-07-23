@@ -184,9 +184,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="automation %281%29.ico" />
+  </ItemGroup>
   <PropertyGroup>
     <LangVersion>9</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>automation %281%29.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
