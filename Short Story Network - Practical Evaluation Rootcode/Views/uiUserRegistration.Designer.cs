@@ -160,9 +160,8 @@
             this.availableState.AutoSize = true;
             this.availableState.Location = new System.Drawing.Point(273, 22);
             this.availableState.Name = "availableState";
-            this.availableState.Size = new System.Drawing.Size(49, 13);
+            this.availableState.Size = new System.Drawing.Size(0, 13);
             this.availableState.TabIndex = 7;
-            this.availableState.Text = "available";
             // 
             // uiUserRegistration
             // 
