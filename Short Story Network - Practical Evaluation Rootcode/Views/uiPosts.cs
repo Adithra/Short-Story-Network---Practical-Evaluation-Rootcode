@@ -103,12 +103,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         private void userList_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             try
-            {
-                if (clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.SeeComments))
-                {
-
-                } 
-
+            { 
                 uiNewPost uiNewPostObj = new(_loggedUserDetailsObj);
                 var postID = (int)this.userList.Rows[e.RowIndex].Cells["PostId"].Value;
                 uiNewPostObj.Load_Post(postID);
