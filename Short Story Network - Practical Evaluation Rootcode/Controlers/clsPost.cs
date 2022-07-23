@@ -62,11 +62,19 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
             {
                 using (var ctx = new ShortStoryNetworkContext())
                 {
-                    ctx.Posts.Add(postObj);
-                    ctx.SaveChanges();
+                    if (postObj.PostId != null && postObj.PostId == 0)
+                    {
+                        ctx.Posts.Add(postObj);
+                        ctx.SaveChanges();
+                    }
+                    else
+                    {
+                        var selectedPost = ctx.Posts.First(a => a.PostId == postObj.PostId);
+                        selectedPost.Post1 = postObj.Post1;
+                        ctx.SaveChanges();
+                    }
+
                 }
-                //var ctx = new ShortStoryNetworkContext();
-                //var author = ctx.Posts.First(a => a.PostId == postObj.PostId);
 
 
                 return new ClientResponse { Message = "", State = true };

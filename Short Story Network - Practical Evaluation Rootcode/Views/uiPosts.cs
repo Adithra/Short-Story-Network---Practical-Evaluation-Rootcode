@@ -105,6 +105,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 uiNewPostObj.postID = postID;
                 uiNewPostObj.Load_Post();
                 uiNewPostObj.ShowDialog();
+                Fill_Data(userID);
             }
             catch (Exception)
             {
