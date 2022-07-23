@@ -12,7 +12,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
         private string _cannAccess = string.Empty;
         private UserAccessTypes _accessType = UserAccessTypes.Default;
 
-        private bool Access_Handler(UserRoles userRole, UserAccessTypes accessType)
+        public bool Access_Handler(UserRoles userRole, UserAccessTypes accessType)
         {
             try
             {
@@ -30,6 +30,10 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                     return true;
                 }
                 else if (accessType == UserAccessTypes.EditComment && userRole == UserRoles.Editors)
+                {
+                    return true;
+                }
+                else if (accessType == UserAccessTypes.SeeComments && (userRole == UserRoles.Editors || userRole == UserRoles.Writers))
                 {
                     return true;
                 }

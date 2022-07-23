@@ -22,6 +22,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             InitializeComponent();
             _loggedUserDetailsObj = loggedUserDetailsObj;
+            UI_Handler();
         }
 
         clsPost clsPostObj = new();
@@ -76,6 +77,23 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 uiCommentsList commentsListObj = new();
                 commentsListObj.Fill_Data(postID);
                 commentsListObj.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void UI_Handler()
+        {
+            try
+            {
+                clsUserAccessHandler clsUserAccessHandler = new clsUserAccessHandler(); 
+                addComment.Enabled= clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.AddComment);
+                seeComments.Enabled= clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.SeeComments);
+                seeComments.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.CreatePost)
+                    && clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.EditPost);
             }
             catch (Exception)
             {

@@ -22,6 +22,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             InitializeComponent();
             _loggedUserDetailsObj = loggedUserDetailsObj;
+            UI_Handler();
         }
 
         public void Load_Writers()
@@ -100,6 +101,20 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 uiPosts uiNewPostObj = new(_loggedUserDetailsObj);
                 uiNewPostObj.Fill_Data(userInfoObj.Id);
                 uiNewPostObj.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void UI_Handler()
+        {
+            try
+            {
+                clsUserAccessHandler clsUserAccessHandler = new clsUserAccessHandler();
+                GOTOPost.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.SeeComments);               
             }
             catch (Exception)
             {
