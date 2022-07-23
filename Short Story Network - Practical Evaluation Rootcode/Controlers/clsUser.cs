@@ -28,7 +28,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                     if (userID != 0)
                     {
                         followerObj = ctx.Followers
-                            .Where(re => re.Id == userID)
+                            .Where(re => re.ActiveUserID == userID)
                             .Include(re => re.UserInfos)            
                             .ToList();
 

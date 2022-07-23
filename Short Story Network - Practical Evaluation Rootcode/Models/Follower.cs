@@ -14,11 +14,11 @@
 
         [Column("UserID")]
         [Required]
-        public int Id { get; set; }
+        public int ActiveUserID { get; set; }
 
         [Column("FollwingID")]
         [Required]
-        public int FollwingID { get; set; }
+        public int Id { get; set; }
 
         public virtual UserInfo UserInfos { get; set; }
     }

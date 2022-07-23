@@ -26,7 +26,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         public void Load_Writers()
         {
-            Fill_Data(_loggedUserDetailsObj.UserRole);
+            Fill_Data("F", _loggedUserDetailsObj.userID);
         }
 
         private void showAllUsers_Click(object sender, EventArgs e)
@@ -121,8 +121,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                     {
                         followerList.Add(new Follower
                         {
-                            Id = _loggedUserDetailsObj.userID,
-                            FollwingID = (int)row.Cells["Id"].Value
+                            ActiveUserID = _loggedUserDetailsObj.userID,
+                            Id = (int)row.Cells["Id"].Value
                         });
                     }
                     clsWritersObj.Set_Followers(followerList);
