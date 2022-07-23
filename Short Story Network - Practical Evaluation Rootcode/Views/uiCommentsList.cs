@@ -81,7 +81,9 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
                 var selectedID = (int)this.userList.Rows[e.RowIndex].Cells["CommentID"].Value;
-                uiComments commentsObj = new(_loggedUserDetailsObj, true, selectedID);
+                var createdBy = (int)this.userList.Rows[e.RowIndex].Cells["CreatedBy"].Value;
+
+                uiComments commentsObj = new(_loggedUserDetailsObj, true, selectedID, createdBy);
                 commentsObj.ShowDialog();
                 Fill_Data(_postID);
             }

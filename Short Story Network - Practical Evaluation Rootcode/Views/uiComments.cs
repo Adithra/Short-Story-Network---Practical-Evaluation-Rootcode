@@ -28,6 +28,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             InitializeComponent();
             _commentID = commentID;
             _overrideAccess = overrideAccess;
+            _loggedUserDetailsObj = loggedUserDetailsObj;
             Load_Comment();
             UI_Handler();
             _userPostID = userPostID;
