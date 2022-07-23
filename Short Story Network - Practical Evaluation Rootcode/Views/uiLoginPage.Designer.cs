@@ -61,6 +61,7 @@
             this.login.TabIndex = 1;
             this.login.Text = "Login";
             this.login.UseVisualStyleBackColor = false;
+            this.login.Click += new System.EventHandler(this.login_Click);
             // 
             // label1
             // 
