@@ -38,11 +38,11 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             clsPostObj.Save_Date(postObj);
         }
 
-        public void Load_Post() {
+        public void Load_Post(int getPostID) {
             try
             {
                 clsPost clsPostObj = new clsPost();
-                var writerList = (List<Post>)clsPostObj.Get_Post(postID).ResultObject;
+                var writerList = (List<Post>)clsPostObj.Get_Post(getPostID).ResultObject;
                 if (writerList.Count >0)
                 {
                     postText.Text = writerList[0].Post1.ToString();

@@ -14,7 +14,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 {
     public partial class uiPosts : Form
     {
-        public int userID = 0;
         private LoggedUserDetails _loggedUserDetailsObj;
 
 
@@ -33,7 +32,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         }
 
-        public ClientResponse Fill_Data()
+        public ClientResponse Fill_Data(int userID = 0)
         {
             try
             {
@@ -83,10 +82,9 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
-                uiNewPost uiNewPostObj = new();
-                uiNewPostObj.userID = userID;
+                uiNewPost uiNewPostObj = new(_loggedUserDetailsObj);
                 uiNewPostObj.ShowDialog();
-                Fill_Data(userID);
+                Fill_Data(_loggedUserDetailsObj.userID);
             }
             catch (Exception)
             {
@@ -104,12 +102,11 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
-                uiNewPost uiNewPostObj = new();
+                uiNewPost uiNewPostObj = new(_loggedUserDetailsObj);
                 var postID = (int)this.userList.Rows[e.RowIndex].Cells["PostId"].Value;
-                uiNewPostObj.postID = postID;
-                uiNewPostObj.Load_Post();
+                uiNewPostObj.Load_Post(postID);
                 uiNewPostObj.ShowDialog();
-                Fill_Data(userID);
+                Fill_Data(postID);
             }
             catch (Exception)
             {
