@@ -23,7 +23,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
-                clsWriters clsWritersObj = new clsWriters();
+                clsUser clsWritersObj = new clsUser();
 
                 var writerList = (List<UserInfo>)clsWritersObj.Get_Writer_List().ResultObject;
                 userList.DataSource = writerList;

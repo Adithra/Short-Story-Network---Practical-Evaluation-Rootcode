@@ -43,7 +43,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
 
 
 
-        private Boolean Autoentication()
+        public void Autoentication()
         {
             try
             {
@@ -57,11 +57,9 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                 {
                     MessageBox.Show("User Account not found");
                 }
-                return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
             }
         }
     }

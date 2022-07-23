@@ -27,6 +27,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 PasswordHash = PassowrdText.Text
             };
             clsLoginPage clsLoginPageObj = new(userInfo);
+            clsLoginPageObj.Autoentication();
 
         }
         #endregion

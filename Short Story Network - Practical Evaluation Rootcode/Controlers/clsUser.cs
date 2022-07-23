@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
 {
-    public class clsWriters
+    public class clsUser
     {
         string _userId;
-        public clsWriters()
+        public clsUser()
         {
 
         }

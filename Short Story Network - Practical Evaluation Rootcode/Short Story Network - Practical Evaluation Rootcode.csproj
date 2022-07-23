@@ -62,7 +62,7 @@
     <Compile Include="ClientResponse.cs" />
     <Compile Include="Controlers\clsLoginPage.cs" />
     <Compile Include="Controlers\clsUserRegistration.cs" />
-    <Compile Include="Controlers\clsWriters.cs" />
+    <Compile Include="Controlers\clsUser.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
