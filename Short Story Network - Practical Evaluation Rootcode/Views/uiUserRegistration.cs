@@ -28,7 +28,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
                 var tempValue = string.Empty;
-                var result = userRegistrationObj.Check_User_ID_Availability(userNameText.Text).State == true ? "available" : "unavailable";
+                var result = ((List<UserInfo>)userRegistrationObj.Check_User_ID_Availability(userNameText.Text).ResultObject).Count == 0 ? "available" : "unavailable";
                 availableState.Text = result;
             }
             catch (Exception)
@@ -51,19 +51,87 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             }
         }
 
+
+        private bool Validate_Date()
+        {
+            var result = true;
+            try
+            {
+                if (PassowrdText.Text != PassowrdConText.Text)
+                {
+                    result = false;
+                    label7.Text = "Invalid password";
+                }
+
+                if (PassowrdText.Text == string.Empty)
+                {
+                    result = false;
+                    label7.Text = "Enter password";
+                }
+                if (emailAddressText.Text == string.Empty)
+                {
+                    result = false;
+                    label6.Text = "Invalid email address";
+                }
+
+                string value = emailAddressText.Text;
+                if (value != string.Empty &&  value.Contains('@') && value.Contains('.'))
+                {
+                    var index1 = value.IndexOf('@');
+                    var index2 = value.IndexOf('.');
+                    bool a = false;
+                    bool b = false;
+                    if (index1 < value.Length - 1 && index1 > 0)
+                    {
+                        a = Char.IsLetterOrDigit(value, index1 + 1);
+                    }
+
+                    if (index2 < value.Length - 1 && index1 > 0)
+                    {
+                        b = Char.IsLetterOrDigit(value, index2 + 1);
+                    }
+
+                    if (a == true && b == true)
+                    {
+                    }
+                    else
+                    {
+                        label6.Text = "Invalid email address";
+                        result = false;
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception)
+            {
+                return result;
+            }
+        }
+
         private ClientResponse Save_Date()
         {
             try
             {
+                if (!Validate_Date())
+                {
+                    return new ClientResponse { State = false };
+
+                }
+
+                clsLoginPage clsLoginPageObj = new(new UserInfo());                
+
                 UserInfo userInfoObj = new()
                 {
                     UserId = userNameText.Text,
                     FirstName = firstNameText.Text,
                     LastName = lastNameText.Text,
-                    PasswordHash = PassowrdConText.Text,
-                    EmailAddress = emailAddressText.Text
+                    PasswordHash = clsLoginPageObj.HashPassword(PassowrdConText.Text),
+                    EmailAddress = emailAddressText.Text,
+                    UserRole = "U"
                 };
                 var clinetResult = userRegistrationObj.Save_Date(userInfoObj);
+                this.Close();
                 return new ClientResponse { Message = "", State = clinetResult.State };
             }
             catch (Exception ex)

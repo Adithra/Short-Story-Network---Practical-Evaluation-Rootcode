@@ -1,8 +1,10 @@
-﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Models;
+﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Short_Story_Network___Practical_Evaluation_Rootcode.Models;
 using Short_Story_Network___Practical_Evaluation_Rootcode.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,7 +31,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                 {
                     result = ctx.UserInfoes
                         .Where(re => re.UserId == _userInfoObj.UserId)
-                        .Where(re => re.PasswordHash== _userInfoObj.PasswordHash)
                         .ToList();
                 }
                 return new ClientResponse { Message = "Success", State = true, ResultObject = result };
@@ -52,6 +53,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
 
                 if ((result.Count > 0))
                 {
+                    if (VerifyPassword(result[0].PasswordHash, _userInfoObj.PasswordHash))
+                    {
                     LoggedUserDetails loggedUserDetailsObj = new()
                     {
                         //loggedUserDetailsObj.CreatedDate = DateTime.Now.Date);
@@ -68,6 +71,12 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
 
                     writersObj.Load_Writers();
                     writersObj.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Passord not found");
+                    }
+
                 }
                 else
                 {
@@ -77,6 +86,54 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
             catch (Exception ex)
             {
             }
+        }
+
+        private byte[] getSalt()
+        {
+            var random = new RNGCryptoServiceProvider();
+
+            int max_length = 32;
+            byte[] salt = new byte[max_length];
+            random.GetNonZeroBytes(salt);
+            return salt;
+        }
+
+        public string HashPassword(string password, byte[] salt = null, bool needsOnlyHash = false)
+        {
+            if (salt == null || salt.Length != 16)
+            {
+                salt = new byte[128 / 8];
+                using (var rng = RandomNumberGenerator.Create())
+                {
+                    rng.GetBytes(salt);
+                }
+            }
+
+            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: password,
+                salt: salt,
+                prf: KeyDerivationPrf.HMACSHA256,
+                iterationCount: 10000,
+                numBytesRequested: 256 / 8));
+
+            if (needsOnlyHash) return hashed;
+            return $"{hashed}:{Convert.ToBase64String(salt)}";
+        }
+
+        private bool VerifyPassword(string hashedPasswordWithSalt, string passwordToCheck)
+        {
+            var passwordAndHash = hashedPasswordWithSalt.Split(':');
+            if (passwordAndHash == null || passwordAndHash.Length != 2)
+                return false;
+            var salt = Convert.FromBase64String(passwordAndHash[1]);
+            if (salt == null)
+                return false;
+            var hashOfpasswordToCheck = HashPassword(passwordToCheck, salt, true);
+            if (String.Compare(passwordAndHash[0], hashOfpasswordToCheck) == 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
