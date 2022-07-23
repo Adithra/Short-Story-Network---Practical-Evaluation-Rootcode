@@ -39,7 +39,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                             result.Add(item.UserInfos);
                         }
                     }
-                    else if (userName == string.Empty)
+                    else if (userName != string.Empty)
                     {
                         result = ctx.UserInfoes
                             .Where(re => re.UserId == userName)

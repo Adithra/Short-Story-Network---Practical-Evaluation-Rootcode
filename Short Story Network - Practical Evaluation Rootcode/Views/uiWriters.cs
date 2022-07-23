@@ -153,9 +153,9 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
 
-                Fill_Data(_loggedUserDetailsObj.UserAccessType,0, userNameText.Text)
+                Fill_Data(_loggedUserDetailsObj.UserRole, 0, userNameText.Text);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
