@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace Short_Story_Network___Practical_Evaluation_Rootcode
 {
-    public partial class Model1 : DbContext
+    public partial class ShortStoryNetworkContext : DbContext
     {
-        public Model1()
+        public ShortStoryNetworkContext()
             : base("name=ShortStoryNetwork")
         {
         }
