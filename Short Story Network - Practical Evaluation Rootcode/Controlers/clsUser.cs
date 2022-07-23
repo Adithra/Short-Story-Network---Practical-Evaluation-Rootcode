@@ -95,7 +95,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                         var selectedPost = ctx.UserInfoes.First(a => a.Id == user.Id);
                         selectedPost.IsBanned = user.IsBanned;
                         selectedPost.IsEditor = user.IsEditor;
-                        ctx.UserInfoes.Add(selectedPost);
                         ctx.SaveChanges();
                     }
                 }

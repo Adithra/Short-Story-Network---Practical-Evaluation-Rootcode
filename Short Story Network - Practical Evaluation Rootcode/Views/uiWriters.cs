@@ -32,15 +32,16 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         private void showAllUsers_Click(object sender, EventArgs e)
         {
-            if (showAllUsers.Text == "Show Follower only")
-            {
-                Fill_Data("F", _loggedUserDetailsObj.userID);
-                showAllUsers.Text = "Show all users";
-            }
-            else
+            if (showAllUsers.Text != "Show Follower only" || _loggedUserDetailsObj.UserAccessType == UserRoles.Moderators )
             {
                 showAllUsers.Text = "Show Follower only";
                 Fill_Data("U");
+            }
+            else
+            {
+                showAllUsers.Text = "Show all users";
+                Fill_Data("F", _loggedUserDetailsObj.userID);
+
             }
         }
         private ClientResponse Fill_Data(string uRole, int userID = 0, string userName = "")
@@ -53,9 +54,13 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 this.userList.Columns["UserId"].Visible = false;
                 this.userList.Columns["PasswordHash"].Visible = false;
                 this.userList.Columns["EmailAddress"].Visible = false;
-                this.userList.Columns["UserRole"].Visible = false;
-                this.userList.Columns["IsEditor"].Visible = false;
-                this.userList.Columns["IsBanned"].Visible = false;
+                if (_loggedUserDetailsObj.UserAccessType != UserRoles.Moderators)
+                {
+                    this.userList.Columns["UserRole"].Visible = false;
+                    this.userList.Columns["IsEditor"].Visible = false;
+                    this.userList.Columns["IsBanned"].Visible = false;
+                }
+
                 return new ClientResponse { Message = "", State = true, ResultObject = true };
             }
             catch (Exception ex)
@@ -114,7 +119,12 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             try
             {
                 clsUserAccessHandler clsUserAccessHandler = new clsUserAccessHandler();
-                GOTOPost.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.SeeComments);               
+                GOTOPost.Enabled = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.SeeComments);
+                setAsEditor.Visible = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
+                revokeEditorState.Visible = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
+                bann.Visible = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
+                unBan.Visible = clsUserAccessHandler.Access_Handler(_loggedUserDetailsObj.UserAccessType, UserAccessTypes.Admin);
+                showAllUsers.Visible = _loggedUserDetailsObj.UserAccessType == UserRoles.Moderators;
             }
             catch (Exception)
             {
@@ -164,10 +174,16 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
         private void setAsEditor_Click(object sender, EventArgs e)
         {
-            Set_User_States();
+            Set_User_States(AdminAction.Editor, true);
         }
 
-        private void Set_User_States()
+        enum AdminAction
+        {
+            Editor,
+            Ban
+        }
+
+        private void Set_User_States(AdminAction AdminAction, bool action)
         {
             try
             {
@@ -176,12 +192,33 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 {
                     foreach (DataGridViewRow row in this.userList.SelectedRows)
                     {
+                        bool tempIsBanned;
+                        bool tempIsEditor;
+                        if (AdminAction== AdminAction.Editor)
+                        {
+                            tempIsEditor = action;
+                        }
+                        else
+                        {
+                            tempIsEditor = (bool)row.Cells["IsEditor"].Value;
+
+                        }
+
+                        if (AdminAction == AdminAction.Ban)
+                        {
+                            tempIsBanned = action;
+                        }
+                        else
+                        {
+                            tempIsBanned = (bool)row.Cells["IsBanned"].Value;
+
+                        }
                         infoList.Add(new UserInfo
                         {
                             Id = (int)row.Cells["id"].Value,
-                            IsBanned = (bool)row.Cells["IsBanned"].Value,
-                            IsEditor = (bool)row.Cells["IsEditor"].Value
-                        });
+                            IsBanned = tempIsBanned,
+                            IsEditor = tempIsEditor
+                        }) ;
                     }
                     clsWritersObj.Set_User_State(infoList);
                 }
@@ -191,6 +228,21 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
                 throw;
             }
+        }
+
+        private void bann_Click_2(object sender, EventArgs e)
+        {
+            Set_User_States(AdminAction.Ban, true);
+        }
+
+        private void revokeEditorState_Click(object sender, EventArgs e)
+        {
+            Set_User_States(AdminAction.Editor, false);
+        }
+
+        private void unBan_Click(object sender, EventArgs e)
+        {
+            Set_User_States(AdminAction.Ban, false);
         }
     }
 }

@@ -23,7 +23,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
         EditComment,
         SeeComments,
         Follow,
-        SetUserAccess
+        SetUserAccess,
+        Admin
     }
 
     public class ClientResponse
