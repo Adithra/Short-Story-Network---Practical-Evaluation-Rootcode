@@ -44,6 +44,8 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
                 }
+                this.userList.ColumnHeadersVisible = false;
+
                 return new ClientResponse { Message = "", State = true, ResultObject = true };
             }
             catch (Exception ex)
