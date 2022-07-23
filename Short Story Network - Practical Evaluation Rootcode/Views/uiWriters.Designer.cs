@@ -28,17 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.userList = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.showAllUsers = new System.Windows.Forms.Button();
             this.GOTOPost = new System.Windows.Forms.Button();
+            this.showAllUsers = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.followWriter = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.userList)).BeginInit();
             this.panel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // userList
             // 
             this.userList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userList.ContextMenuStrip = this.contextMenuStrip1;
             this.userList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userList.Location = new System.Drawing.Point(0, 0);
             this.userList.Name = "userList";
@@ -57,20 +62,6 @@
             this.panel1.Size = new System.Drawing.Size(800, 49);
             this.panel1.TabIndex = 1;
             // 
-            // showAllUsers
-            // 
-            this.showAllUsers.BackColor = System.Drawing.Color.DodgerBlue;
-            this.showAllUsers.FlatAppearance.BorderSize = 0;
-            this.showAllUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showAllUsers.ForeColor = System.Drawing.Color.White;
-            this.showAllUsers.Location = new System.Drawing.Point(657, 13);
-            this.showAllUsers.Name = "showAllUsers";
-            this.showAllUsers.Size = new System.Drawing.Size(131, 23);
-            this.showAllUsers.TabIndex = 2;
-            this.showAllUsers.Text = "Show all users";
-            this.showAllUsers.UseVisualStyleBackColor = false;
-            this.showAllUsers.Click += new System.EventHandler(this.showAllUsers_Click);
-            // 
             // GOTOPost
             // 
             this.GOTOPost.BackColor = System.Drawing.Color.DodgerBlue;
@@ -85,6 +76,34 @@
             this.GOTOPost.UseVisualStyleBackColor = false;
             this.GOTOPost.Click += new System.EventHandler(this.GOTOPost_Click);
             // 
+            // showAllUsers
+            // 
+            this.showAllUsers.BackColor = System.Drawing.Color.DodgerBlue;
+            this.showAllUsers.FlatAppearance.BorderSize = 0;
+            this.showAllUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showAllUsers.ForeColor = System.Drawing.Color.White;
+            this.showAllUsers.Location = new System.Drawing.Point(657, 13);
+            this.showAllUsers.Name = "showAllUsers";
+            this.showAllUsers.Size = new System.Drawing.Size(131, 23);
+            this.showAllUsers.TabIndex = 2;
+            this.showAllUsers.Text = "Show all users";
+            this.showAllUsers.UseVisualStyleBackColor = false;
+            this.showAllUsers.Click += new System.EventHandler(this.showAllUsers_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.followWriter});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // followWriter
+            // 
+            this.followWriter.Name = "followWriter";
+            this.followWriter.Size = new System.Drawing.Size(180, 22);
+            this.followWriter.Text = "Follow";
+            this.followWriter.Click += new System.EventHandler(this.followWriter_Click);
+            // 
             // uiWriters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,6 +115,7 @@
             this.Text = "uiWriters";
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -106,5 +126,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button showAllUsers;
         private System.Windows.Forms.Button GOTOPost;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem followWriter;
     }
 }

@@ -16,8 +16,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
         public Form1()
         {
             InitializeComponent();
-            uiWriters test = new uiWriters();
-            test.ShowDialog();
         }
     }
 }

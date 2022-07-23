@@ -16,6 +16,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
     {
         public UserInfo userInfoObj = new UserInfo();
         private LoggedUserDetails _loggedUserDetailsObj;
+        clsUser clsWritersObj = new clsUser();
 
         public uiWriters(LoggedUserDetails loggedUserDetailsObj)
         {
@@ -23,7 +24,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
             _loggedUserDetailsObj = loggedUserDetailsObj;
         }
 
-        private void Load_Writers()
+        public void Load_Writers()
         {
             Fill_Data(_loggedUserDetailsObj.UserRole);
         }
@@ -45,8 +46,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
         {
             try
             {
-                clsUser clsWritersObj = new clsUser();
-
                 var writerList = (List<UserInfo>)clsWritersObj.Get_Writer_List(uRole).ResultObject;
                 userList.DataSource = writerList;
                 this.userList.Columns["Id"].Visible = false;
@@ -103,6 +102,31 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 uiNewPostObj.userID = userInfoObj.Id;
                 uiNewPostObj.Fill_Data(userInfoObj.Id);
                 uiNewPostObj.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void followWriter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Follower> followerList = new();
+                if (this.userList.SelectedRows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in this.userList.SelectedRows)
+                    {
+                        followerList.Add(new Follower
+                        {
+                            Id = _loggedUserDetailsObj.userID,
+                            FollwingID = (int)row.Cells["Id"].Value
+                        });
+                    }
+                    clsWritersObj.Set_Followers(followerList);
+                }
             }
             catch (Exception)
             {

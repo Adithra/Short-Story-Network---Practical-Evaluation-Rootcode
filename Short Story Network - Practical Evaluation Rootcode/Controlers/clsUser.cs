@@ -57,6 +57,26 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                 return new ClientResponse { ClientException = ex, State = false };
             }
         }
+
+        public ClientResponse Set_Followers(List<Follower> followerList)
+        {
+            try
+            {
+                using (var ctx = new ShortStoryNetworkContext())
+                {
+                    foreach (var follower in followerList)
+                    {
+                        ctx.Followers.Add(follower);
+                        ctx.SaveChanges();
+                    }                      
+                }
+                return new ClientResponse { Message = "Success", State = true, ResultObject = true };
+            }
+            catch (Exception ex)
+            {
+                return new ClientResponse { ClientException = ex, State = false };
+            }
+        }
         #endregion
     }
 }
