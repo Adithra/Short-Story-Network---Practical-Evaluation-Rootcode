@@ -110,7 +110,10 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
                 var postID = (int)this.userList.Rows[e.RowIndex].Cells["PostId"].Value;
                 uiNewPostObj.Load_Post(postID);
                 uiNewPostObj.ShowDialog();
-                Fill_Data(postID);
+                if (!_overrideAccess)
+                {
+                    Fill_Data(postID);
+                }
             }
             catch (Exception)
             {
