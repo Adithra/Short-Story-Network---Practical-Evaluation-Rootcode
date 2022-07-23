@@ -1,4 +1,5 @@
 ﻿using Short_Story_Network___Practical_Evaluation_Rootcode.Controlers;
+using Short_Story_Network___Practical_Evaluation_Rootcode.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,22 +15,24 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
     public partial class uiWriters : Form
     {
         public UserInfo userInfoObj = new UserInfo();
+        private LoggedUserDetails _loggedUserDetailsObj;
 
-        public uiWriters()
+        public uiWriters(LoggedUserDetails loggedUserDetailsObj)
         {
             InitializeComponent();
+            _loggedUserDetailsObj = loggedUserDetailsObj;
         }
 
         private void Load_Writers()
         {
-            Fill_Data("W");
+            Fill_Data(_loggedUserDetailsObj.UserRole);
         }
 
         private void showAllUsers_Click(object sender, EventArgs e)
         {
             if (showAllUsers.Text == "Show writers only")
             {
-                Fill_Data("W");
+                Fill_Data("U");
                 showAllUsers.Text = "Show all users";
             }
             else

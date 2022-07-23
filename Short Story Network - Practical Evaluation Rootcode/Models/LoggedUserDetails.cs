@@ -25,6 +25,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Models
         }
 
         public bool IsEditor { get; set; }
+
         private void Get_Access_Type(string charVal)
         {
             try

@@ -12,7 +12,6 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
     public class clsLoginPage
     {
         private UserInfo _userInfoObj = new();
-        private LoggedUserDetails loggedUserDetailsObj = new();
 
         public clsLoginPage(UserInfo userInfoObj)
         {
@@ -53,16 +52,21 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
 
                 if ((result.Count > 0))
                 {
-                    uiWriters writersObj = new()
+                    LoggedUserDetails loggedUserDetailsObj = new()
+                    {
+                        //loggedUserDetailsObj.CreatedDate = DateTime.Now.Date);
+                        userID = result[0].Id,
+                        userName = result[0].UserId,
+                        userFullName = string.Concat(result[0].FirstName, string.Empty, result[0].LastName),
+                        IsEditor = result[0].IsEditor,
+                        UserRole = result[0].UserRole
+                    };
+                    uiWriters writersObj = new(loggedUserDetailsObj)
                     {
                         userInfoObj = result[0]
                     };
-                    //loggedUserDetailsObj.CreatedDate = DateTime.Now.Date);
-                    loggedUserDetailsObj.userID = result[0].Id;
-                    loggedUserDetailsObj.userName = result[0].UserId;
-                    loggedUserDetailsObj.userFullName = string.Concat(result[0].FirstName,string.Empty,result[0].LastName);
-                    loggedUserDetailsObj.UserAccessType = 
 
+                    writersObj.Load_Writers();
                     writersObj.ShowDialog();
                 }
                 else

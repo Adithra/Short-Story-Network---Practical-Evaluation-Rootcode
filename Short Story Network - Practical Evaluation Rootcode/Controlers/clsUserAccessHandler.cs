@@ -33,7 +33,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Controlers
                 {
                     return true;
                 }
-                else if (accessType == UserAccessTypes.SetUserAccess && userRole == UserRoles.moderators)
+                else if (accessType == UserAccessTypes.SetUserAccess && userRole == UserRoles.Moderators)
                 {
                     return true;
                 }
