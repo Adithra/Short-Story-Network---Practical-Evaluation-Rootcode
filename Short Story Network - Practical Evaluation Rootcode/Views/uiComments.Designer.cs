@@ -77,7 +77,7 @@
             this.Controls.Add(this.commentText);
             this.Name = "uiComments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Comment  Details";
+            this.Text = "Comment";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
