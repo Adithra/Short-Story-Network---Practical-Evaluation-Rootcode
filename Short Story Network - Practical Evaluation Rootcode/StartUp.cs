@@ -11,7 +11,7 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode
     {
         public  void Start()
         {
-            uiUsers uiUsersObj = new();
+            uiLoginPage uiUsersObj = new();
             uiUsersObj.ShowDialog();
         }
     }
