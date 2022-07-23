@@ -45,18 +45,46 @@ namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 
                 var writerList = (List<UserInfo>)clsWritersObj.Get_Writer_List(uRole).ResultObject;
                 userList.DataSource = writerList;
+                this.userList.Columns["Id"].Visible = false;
                 this.userList.Columns["UserId"].Visible = false;
                 this.userList.Columns["PasswordHash"].Visible = false;
                 this.userList.Columns["EmailAddress"].Visible = false;
                 this.userList.Columns["UserRole"].Visible = false;
                 this.userList.Columns["IsEditor"].Visible = false;
                 this.userList.Columns["IsBanned"].Visible = false;
-
                 return new ClientResponse { Message = "", State = true, ResultObject = true };
             }
             catch (Exception ex)
             {
                 return new ClientResponse { ClientException = ex, State = false };
+            }
+        }
+
+        private void userList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                this.userList.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
+                this.userList.Rows[e.RowIndex].Selected = true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void userList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var userID = this.userList.Rows[e.RowIndex].Cells["Id"].Value;
+                var test = 1;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

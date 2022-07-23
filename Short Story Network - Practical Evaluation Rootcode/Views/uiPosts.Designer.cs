@@ -1,6 +1,6 @@
 ﻿namespace Short_Story_Network___Practical_Evaluation_Rootcode.Views
 {
-    partial class uiWriters
+    partial class uiPosts
     {
         /// <summary>
         /// Required designer variable.
@@ -28,32 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.userList = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.showAllUsers = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.userList)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.userList = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userList)).BeginInit();
             this.SuspendLayout();
-            // 
-            // userList
-            // 
-            this.userList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userList.Location = new System.Drawing.Point(0, 0);
-            this.userList.Name = "userList";
-            this.userList.Size = new System.Drawing.Size(800, 450);
-            this.userList.TabIndex = 0;
-            this.userList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userList_CellClick);
-            this.userList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userList_CellDoubleClick);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.showAllUsers);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 401);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 49);
-            this.panel1.TabIndex = 1;
             // 
             // showAllUsers
             // 
@@ -67,27 +47,44 @@
             this.showAllUsers.TabIndex = 2;
             this.showAllUsers.Text = "Show all users";
             this.showAllUsers.UseVisualStyleBackColor = false;
-            this.showAllUsers.Click += new System.EventHandler(this.showAllUsers_Click);
             // 
-            // uiWriters
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.showAllUsers);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 401);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 49);
+            this.panel1.TabIndex = 3;
+            // 
+            // userList
+            // 
+            this.userList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userList.Location = new System.Drawing.Point(0, 0);
+            this.userList.Name = "userList";
+            this.userList.Size = new System.Drawing.Size(800, 450);
+            this.userList.TabIndex = 2;
+            // 
+            // uiPosts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.userList);
-            this.Name = "uiWriters";
-            this.Text = "uiWriters";
-            ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
+            this.Name = "uiPosts";
+            this.Text = "uiPosts";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView userList;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button showAllUsers;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView userList;
     }
 }
