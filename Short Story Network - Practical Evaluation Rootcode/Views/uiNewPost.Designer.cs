@@ -43,7 +43,8 @@
             // 
             // postText
             // 
-            this.postText.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.postText.BackColor = System.Drawing.Color.AliceBlue;
+            this.postText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.postText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.postText.Location = new System.Drawing.Point(0, 274);
             this.postText.Multiline = true;
